@@ -34,6 +34,7 @@
 
 <!-- shop-details-area -->
 <section class="shop-details-area pt-100 pb-95">
+    <?php extract($pddetails)?>
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
@@ -55,7 +56,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="item-one" role="tabpanel" aria-labelledby="item-one-tab">
                                 <div class="shop-details-img">
-                                    <img src="layout/img/product/shop_details_img01.jpg" alt="">
+                                    <img src="layout/img/product/<?= $img ?>" alt="">
                                 </div>
                             </div>
                             <!-- <div class="tab-pane fade" id="item-two" role="tabpanel" aria-labelledby="item-two-tab">
@@ -75,7 +76,7 @@
             <div class="col-lg-5">
                 <div class="shop-details-content">
                     <a href="#" class="product-cat">Tracker Jacket</a>
-                    <h3 class="title">Woman Tracker Jacket</h3>
+                    <h3 class="title"><?= $product_name?></h3>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -84,51 +85,57 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="style-name">Style Name : TN-WI56-OMTJ-CqTKJ-09#</p>
-                    <div class="price">Price : $ 29.00</div>
-                    <div class="product-details-info">
-                        <span>Size <a href="#">Guide</a></span>
-                        <div class="sidebar-product-size mb-30">
-                            <h4 class="widget-title">Product Size</h4>
-                            <div class="shop-size-list">
-                                <ul>
-                                    <li><a href="#">S</a></li>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">XL</a></li>
-                                    <li><a href="#">XXL</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sidebar-product-color">
-                            <h4 class="widget-title">Color</h4>
-                            <div class="shop-color-list">
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="perched-info">
-                        <div class="cart-plus-minus">
-                            <form action="#" class="num-block">
-                                <input type="text" class="in-num" value="1" readonly="">
-                                <div class="qtybutton-box">
-                                    <span class="plus"><img src="layout/img/icon/plus.png" alt=""></span>
-                                    <span class="minus dis"><img src="layout/img/icon/minus.png" alt=""></span>
+                    <div class="price">Price : $ <?=$price?>.00</div>
+                    <form action="index.php?act=cart" method="post">
+                        <div class="product-details-info">
+                            <span>Size <a href="#">Guide</a></span>
+                            <div class="sidebar-product-size mb-30">
+                                <h4 class="widget-title">Product Size</h4>
+                                <div class="shop-size-list">
+                                    <ul>
+                                        <li><input type="radio" name="size" value="S"><a href="#">S</a></li>
+                                        <li><input type="radio" name="size" value="M"><a href="#">M</a></li>
+                                        <li><input type="radio" name="size" value="L"><a href="#">L</a></li>
+                                        <li><input type="radio" name="size" value="XL"><a href="#">XL</a></li>
+                                        <li><input type="radio" name="size" value="XXL"><a href="#">XXL</a></li>
+                                    </ul>
+                                    
+                                    
+                                    
+                                    
+                                    
                                 </div>
-                            </form>
+                            </div>
+                            <div class="sidebar-product-color">
+                                <h4 class="widget-title">Color</h4>
+                                <div class="shop-color-list">
+                                    <ul>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <a href="index.php?act=cart" class="btn">add to cart</a>
-                        <div class="wishlist-compare">
-                            <ul>
-                                <li><a href="#"><i class="far fa-heart"></i> Add to Wishlist</a></li>
-                                <li><a href="#"><i class="fas fa-retweet"></i> Add to Compare List</a></li>
-                            </ul>
+                        <div class="perched-info">
+                            <div class="cart-plus-minus">
+                                <form action="#" class="num-block">
+                                    <input type="text" class="in-num" value="1" readonly="">
+                                    <div class="qtybutton-box">
+                                        <span class="plus"><img src="layout/img/icon/plus.png" alt=""></span>
+                                        <span class="minus dis"><img src="layout/img/icon/minus.png" alt=""></span>
+                                    </div>
+                                </form>
+                            </div>
+                              <input type="hidden" name="id" value="<?=$id?>">
+                              <input type="hidden" name="name" value="<?=$product_name?>">
+                              <input type="hidden" name="img" value="<?=$img?>">
+                              <input type="hidden" name="price" value="<?=$price?>">
+                            <a href="index.php?act=cart" class="btn">add to cart</a>
+                            
                         </div>
-                    </div>
+                    </form>
                     <div class="product-details-share">
                         <ul>
                             <li>Share :</li>

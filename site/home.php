@@ -1948,23 +1948,26 @@
                         </div>
                     </div>
                     <div class="row new-arrival-active">
-                        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                            <div class="new-arrival-item text-center mb-50">
-                                <div class="thumb mb-25">
-                                    <a href="shop-details.html"><img src="layout/img/product/n_arrival_product01.jpg" alt=""></a>
-                                    <div class="product-overlay-action">
-                                        <ul>
-                                            <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                            <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
-                                        </ul>
+                        <?php foreach($products as $pd):?>
+                            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
+                                <div class="new-arrival-item text-center mb-50">
+                                    <div class="thumb mb-25">
+                                        <a href="index.php?act=products_details&id=<?=$pd['id']?>"><img src="layout/img/product/<?=$pd['img']?>" alt=""></a>
+                                        <div class="product-overlay-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
+                                                <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5><a href="shop-details.html">Bomber in Cotton</a></h5>
+                                        <span class="price">$37.00</span>
                                     </div>
                                 </div>
-                                <div class="content">
-                                    <h5><a href="shop-details.html">Bomber in Cotton</a></h5>
-                                    <span class="price">$37.00</span>
-                                </div>
                             </div>
-                        </div>
+                        <?php endforeach ?>
+                        
                         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
                             <div class="new-arrival-item text-center mb-50">
                                 <div class="thumb mb-25">
@@ -2094,105 +2097,9 @@
             </section>
             <!-- new-arrival-area-end -->
 
-            <!-- discount-area -->
-            <section class="discount-area discount-bg-two" data-background="img/bg/discount_bg02.jpg">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center justify-content-lg-start">
-                        <div class="col-lg-6 col-md-8">
-                            <div class="discount-content text-left">
-                                <div class="icon mb-15"><img src="layout/img/icon/discount_icon.png" alt=""></div>
-                                <span>STOCK IS LIMITED</span>
-                                <h2>Winter Collection Season Sale upto 30%</h2>
-                                <a href="shop-sidebar.html" class="btn">shop now</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-8 col-sm-10">
-                            <div class="discount-end-time-wrap">
-                                <div class="icon">
-                                    <img src="layout/img/icon/discount_icon.png" alt="">
-                                </div>
-                                <div class="content">
-                                    <span>STOCK IS LIMITED</span>
-                                    <h2>Winter Collection</h2>
-                                    <div class="coming-time" data-countdown="2021/9/21"></div>
-                                    <a href="shop-sidebar.html" class="btn">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- discount-area-end -->
+            
 
-            <!-- blog-area -->
-            <section class="blog-area pt-95 pb-50">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-4 col-lg-6">
-                            <div class="section-title title-style-two text-center mb-45">
-                                <h3 class="title">latest blog posts</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="blog-post-item mb-50">
-                                <div class="blog-post-thumb mb-20">
-                                    <a href="blog-details.html"><img src="layout/img/blog/blog_thumb01.jpg" alt=""></a>
-                                </div>
-                                <div class="blog-post-content">
-                                    <div class="tag"><a href="#">Shopping</a></div>
-                                    <h3><a href="blog-details.html">Erby-style shoes currently afoot presents an</a></h3>
-                                    <div class="blog-post-meta">
-                                        <ul>
-                                            <li><i class="far fa-user"></i><a href="#">Jon Deo</a></li>
-                                            <li><i class="far fa-calendar-alt"></i> Mar 10, 2021</li>
-                                            <li class="read-more"><a href="blog-details.html"><i class="fas fa-angle-double-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="blog-post-item mb-50">
-                                <div class="blog-post-thumb mb-20">
-                                    <a href="blog-details.html"><img src="layout/img/blog/blog_thumb02.jpg" alt=""></a>
-                                </div>
-                                <div class="blog-post-content">
-                                    <div class="tag"><a href="#">Creative Design</a></div>
-                                    <h3><a href="blog-details.html">Make A Boring Wardrobe More Stylish Than</a></h3>
-                                    <div class="blog-post-meta">
-                                        <ul>
-                                            <li><i class="far fa-user"></i><a href="#">Jon Deo</a></li>
-                                            <li><i class="far fa-calendar-alt"></i> Mar 10, 2021</li>
-                                            <li class="read-more"><a href="blog-details.html"><i class="fas fa-angle-double-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="blog-post-item mb-50">
-                                <div class="blog-post-thumb mb-20">
-                                    <a href="blog-details.html"><img src="layout/img/blog/blog_thumb03.jpg" alt=""></a>
-                                </div>
-                                <div class="blog-post-content">
-                                    <div class="tag"><a href="#">Creative Design</a></div>
-                                    <h3><a href="blog-details.html">Clothes that never get worn, but it doesn't have</a></h3>
-                                    <div class="blog-post-meta">
-                                        <ul>
-                                            <li><i class="far fa-user"></i><a href="#">Jon Deo</a></li>
-                                            <li><i class="far fa-calendar-alt"></i> Mar 10, 2021</li>
-                                            <li class="read-more"><a href="blog-details.html"><i class="fas fa-angle-double-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- blog-area-end -->
+            
 
             <!-- newsletter-area -->
             <section class="newsletter-area">
