@@ -1,105 +1,154 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Checkout example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <style>
-        .thongtinkh{
-            width: 70%;
-            margin: 50px auto;
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
-        .pttt{
-            margin-left: 400px;
-        }
-        .ttdh{
-            width: 70%;
-            margin: 20px auto;
-        }
+      }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
-<body>
-    <div class="tieude text-center">
-        <h2 class="pt-5">Thanh toán</h2>
-    </div>
-    <form action="indexdemo.php?act=addbill" method="post">
-        <div class="thongtinkh">
-            <h3 class="text-center">Thông tin đặt hàng</h3>
-            <div class="tt">
-                Họ tên: <input class="form-control" type="text" name="hoten">
-            </div>
-            <div class="tt">
-                Địa chỉ: <input class="form-control" type="text" name="diachi">
-            </div>
-            <div class="tt">
-                Số điện thoại: <input class="form-control" type="text" name="sdt">
-            </div>
-            <div class="tt">
-                Email: <input class="form-control" type="text" name="email">
-            </div>
-        </div>
-        <div>
-                <div class="text-center pt-5">
-                    <h3 class="fw-bold mb-5">Phương thức thanh toán</h3>
-                </div>
-                <div class="pttt input-group flex-nowrap mb-5 text-center" >
-                    <div class="">
-                        <input class="form-check-input me-3"  type="radio" name="pttt" value="Thanh toán trực tiếp"  checked>Trả tiền khi nhận hàng 
-                    </div>
-                    <div class="">
-                        <input class="form-check-input me-3 ms-3" type="radio" name="pttt" value="Chuyển khoản ngân hàng"  >Chuyển khoản ngân hàng
-                    </div>
-                    <div class="">
-                        <input class="form-check-input me-3 ms-3" type="radio" name="pttt" value="Thanh toán online" >Thanh toán online
-                    </div>
-                </div>
-        </div>
-        <div>
-                <div class="text-center pt-5">
-                    <h3 class="fw-bold mb-5">Thông tin đơn hàng</h3>
-                </div>
-                <div class="ttdh">
-                    <table class="table table-striped">
-                        <thead>
-                            <td>STT</td>
-                            <td>Product Name</td>
-                            <td>IMG</td>
-                            <td>Price</td>
-                            <td>Color</td>
-                            <td>Size</td>
-                        </thead>
-                        <?php
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="container pt-5">
+
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your cart</span>
+        <span class="badge badge-secondary badge-pill"></span>
+      </h4>
+      <ul class="list-group mb-3">
+      <?php
                             $stt = 1;
                             $tongtien = 0;
                             foreach($_SESSION['mycart'] as $cart){
-                                echo '<tr>
-                                    <td>'.$stt.'</td>
-                                    <td>'.$cart[1].'</td>
-                                    <td><img src="layout/img/product/'.$cart[3].'" alt="" width="50px"></td>
-                                    <td>'.$cart[2].'.00</td>
-                                    <td>'.$cart[5].'</td>
-                                    <td>'.$cart[4].'</td>
-                                </tr>';  
+                               
                                 $stt+=1; 
                                 $tongtien += $cart[2];
-                            } 
-                            echo '<tr>
-                                <td>Tổng tiền:</td>
-                                <td>$'.$tongtien.'.00</td>                
-                            </tr>';
+                          
+                            
                         ?>
-                
-                    </table>
-                    <input type="hidden" name="tongtien" value="<?=$tongtien?>">
-                    <a class="btn btn-success" href="indexdemo.php?act=viewcart">Quay lại giỏ hàng</a>
-                    <a href="indexdemo.php?act=addbill"><input class="btn btn-success" type="submit" name="addbill" value="Xác nhận"></a>
-                </div>
-        </div>
-    </form>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>  
+            <h6 class="my-0">Product name</h6>
+            <small class="text-muted"><?php echo $cart[1]?></small>
+            
+          </div>
+          <span class="text-muted"><?php echo $cart[2]?></span>
+        </li>
+        <?php }?>
+        
+        <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0">Promo code</h6>
+            <small></small>
+          </div>
+          <span class="text-success"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (USD)</span>
+          <strong><?php echo $tongtien?></strong>
+        </li>
+      </ul>
 
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Promo code">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3"></h4>
+      <form action="indexdemo.php?act=addbill" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">Họ và Tên</label>
+            <input type="text" class="form-control" name="hoten" placeholder="Nguyen Van A" value="" required>
+            <div class="invalid-feedback">
+              Điền thông tin.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted"></span></label>
+          <input type="email" class="form-control" name="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Điền đúng địa chỉ eamil.
+          </div>
+          <input type="hidden" name="tongtien" value="<?=$tongtien?>">
+        </div>
+
+        <div class="mb-3">
+          <label for="address">Địa chỉ</label>
+          <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ" required>
+          <div class="invalid-feedback">
+            Điền địa chỉ chính xác.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Số điện thoại<span class="text-muted"></span></label>
+          <input type="text" class="form-control" name="sdt" placeholder="xxxx">
+        </div>
+
+
+        <h4 class="mb-3">Phương thức thanh toán</h4>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="pttt" type="radio" class="custom-control-input" checked required>
+            <label class="custom-control-label" for="credit" value="Thanh toán trực tiếp">Trực tiếp</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="pttt" type="radio" class="custom-control-input" required value="Ví điện tử">
+            <label class="custom-control-label" for="debit"  >Ví điện tử</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="pttt" type="radio" class="custom-control-input" required value="Thanh toán Chuyển khoản ngân hàng">
+            <label class="custom-control-label" for="paypal">Banking ATM</label>
+          </div>
+        </div>
+        <hr class="mb-4">
+        
+        <a href="indexdemo.php?act=addbill"><button class="btn btn-primary btn-lg btn-block" type="submit" name="addbill">Xác nhận thanh toán</button></a>
+      </form>
+      <a href="indexdemo.php?act=viewcart"><button class="btn btn-primary btn-lg btn-block mt-5" type="submit">Quay lại giỏ hàng</button></a>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+  </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+        <script src="https://getbootstrap.com/docs/4.3/examples/checkout/form-validation.js"></script></body>
 </html>

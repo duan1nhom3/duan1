@@ -70,6 +70,7 @@
                 ?>
         
             </table>
+            <a href="indexdemo.php">Trở lại trang chính</a>
         </div>
     </div>
 
