@@ -93,11 +93,12 @@
                                 <h4 class="widget-title">Product Size</h4>
                                 <div class="shop-size-list">
                                     <ul>
-                                        <li><input type="radio" name="size" value="S"><a href="#">S</a></li>
+                                        
+                                        <!-- <li><input type="radio" name="size" value="S"><a href="#">S</a></li>
                                         <li><input type="radio" name="size" value="M"><a href="#">M</a></li>
                                         <li><input type="radio" name="size" value="L"><a href="#">L</a></li>
                                         <li><input type="radio" name="size" value="XL"><a href="#">XL</a></li>
-                                        <li><input type="radio" name="size" value="XXL"><a href="#">XXL</a></li>
+                                        <li><input type="radio" name="size" value="XXL"><a href="#">XXL</a></li> -->
                                     </ul>
                                     
                                     

@@ -31,7 +31,8 @@
                 <td>DELETE</td>
             </thead>
             <?php
-                $stt = 1; 
+                $stt = 1;
+                $tongtien = 0;
                 foreach($_SESSION['mycart'] as $cart){
                     echo '<tr>
                         <td>'.$stt.'</td>
@@ -43,7 +44,12 @@
                         <td><a href="indexdemo.php?act=delcart&id='.$stt.'"><button type="submit" name="delete" class="btn btn-danger">DELETE</button></a></td>
                     </tr>';  
                     $stt+=1; 
+                    $tongtien += $cart[2];
                 } 
+                echo '<tr>
+                    <td>Tổng tiền:</td>
+                    <td>'.$tongtien.'</td>                
+                </tr>';
             ?>
     
         </table>

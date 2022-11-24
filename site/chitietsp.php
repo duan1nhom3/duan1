@@ -6,25 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .red{
+        .Red{
             width: 20px;
             height: 20px;
             background-color: red;
         }
-        .black{
+        .Black{
             width: 20px;
             height: 20px;
             background-color: black;
         }
-        .blue{
+        .Blue{
             width: 20px;
             height: 20px;
             background-color: blue;
         }
-        .green{
+        .Green{
             width: 20px;
             height: 20px;
             background-color: green;
+        }
+        .Yellow{
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
         }
         .tieudesp{
             text-align: center;
@@ -43,7 +48,7 @@
         }
         .color{
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         }
         .mausac{
             width: 200px;
@@ -83,31 +88,40 @@
             <form action="indexdemo.php?act=addtocart" method="POST">
                 <div class="size">
                     <p>Product size</p>
-                    <input type="radio" name="size" value="S" checked> S
+
+                    <?php foreach($size as $size){
+                        echo '<input type="radio" name="size" value="'.$size['id'].'" checked>'.$size['size'].'';
+                        }
+                    ?>
+                    <!-- <input type="radio" name="size" value="S" checked> S
                     <input type="radio" name="size" value="M"> M
                     <input type="radio" name="size" value="L"> L
                     <input type="radio" name="size" value="XL"> XL
-                    <input type="radio" name="size" value="XXL"> XXL
+                    <input type="radio" name="size" value="XXL"> XXL -->
                 </div>
                 <div class="mausac">
                     <p>Color</p> <br>
                     <div class="color">
-                        <div class="chonmau">
-                            <input type="radio" name="color" value="red">
-                            <div class="red"></div>
-                        </div>
-                        <div class="chonmau">
-                            <input type="radio" name="color" value="black" checked>
+                        <?php foreach($color as $color){
+                            echo '<div class="chonmau">
+                            <input type="radio" name="color" value="'.$color['id'].'" checked>
+                            <div class="'.$color['color_name'].'"></div>
+                            </div>';
+                        }
+                        ?>
+                        
+                        <!-- <div class="chonmau">
+                             <input type="radio" name="color" value="black" checked>
                             <div class="black"></div>
-                        </div>
-                        <div class="chonmau">
-                            <input type="radio" name="color" value="blue">
+                         </div>
+                         <div class="chonmau">
+                             <input type="radio" name="color" value="blue">
                             <div class="blue"></div>
                         </div>
                         <div class="chonmau">
-                            <input type="radio" name="color" value="green">
+                             <input type="radio" name="color" value="green">
                             <div class="green"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 
