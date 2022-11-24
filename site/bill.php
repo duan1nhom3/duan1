@@ -47,7 +47,7 @@
                     <td>Price</td>
                     <td>Color</td>
                     <td>Size</td>
-                    <td>DELETE</td>
+
                 </thead>
                 <?php
                     $stt = 1;
@@ -60,7 +60,9 @@
                             <td>'.$bd['price'].'.00</td>
                             <td>'.selectcolor($bd['color'])['color_name'].'</td>
                             <td>'.selectsize($bd['size'])['size'].'</td>
-                            <td><a href="indexdemo.php?act=delcart&id='.$stt.'"><button type="submit" name="delete" class="btn btn-danger">DELETE</button></a></td>
+
+                            
+
                         </tr>';  
                         $stt+=1; 
                         $tongtien += $cart[2];

@@ -18,5 +18,4 @@ function loadonecart($idbill){
     $bill = pdo_query($sql);
     return $bill;
 }
-
 ?>

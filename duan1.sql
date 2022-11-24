@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 20, 2022 lúc 02:31 PM
+
+-- Thời gian đã tạo: Th10 21, 2022 lúc 02:27 PM
+
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 8.1.10
 
@@ -34,11 +36,45 @@ CREATE TABLE `bill` (
   `address` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone_number` int(11) NOT NULL,
-  `method` tinyint(1) NOT NULL,
+
+  `method` varchar(255) NOT NULL,
+
   `total` int(11) NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+-- Đang đổ dữ liệu cho bảng `bill`
+--
+
+INSERT INTO `bill` (`id`, `id_user`, `fullname`, `address`, `email`, `phone_number`, `method`, `total`, `status`) VALUES
+(1, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, '0', 127, ''),
+(2, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, '0', 127, ''),
+(3, 0, 'abc', 'hn', 'abc@gmail.com', 123151, 'Thanh toán ', 60, ''),
+(4, 0, 'abc', 'hn', 'abc@gmail.com', 123151, 'Thanh toán ', 60, ''),
+(5, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(6, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 37, ''),
+(7, 0, '', '', '', 0, 'Thanh toán trực tiếp', 90, ''),
+(8, 0, '', '', '', 0, 'Thanh toán trực tiếp', 90, ''),
+(9, 0, '', '', '', 0, 'Thanh toán trực tiếp', 90, ''),
+(10, 0, '', '', '', 0, 'Thanh toán trực tiếp', 90, ''),
+(11, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(12, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(13, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(14, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(15, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(16, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(17, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 150, ''),
+(18, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 67, ''),
+(19, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(20, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 60, ''),
+(21, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 30, ''),
+(22, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 30, ''),
+(23, 0, 'abc', 'hn', 'abc@gmail.com', 123123, 'Chuyển khoản ngân hàng', 30, ''),
+(24, 0, 'abc', 'hn', 'abc@gmail.com', 12312312, 'Chuyển khoản ngân hàng', 30, '');
+
+>>>>>>> b3e78136ce4f9037bef42b750e06b8b6f5b12ba5
 -- --------------------------------------------------------
 
 --
@@ -49,11 +85,56 @@ CREATE TABLE `bill_details` (
   `id` int(11) NOT NULL,
   `id_bill` int(11) NOT NULL,
   `product_name` varchar(255) NOT NULL,
+
+  `price` int(11) NOT NULL,
   `img` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
+  `color` int(11) NOT NULL,
+
   `amount` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+--
+-- Đang đổ dữ liệu cho bảng `bill_details`
+--
+
+INSERT INTO `bill_details` (`id`, `id_bill`, `product_name`, `price`, `img`, `size`, `color`, `amount`, `total`) VALUES
+(1, 1, 'Bomber in Cotton', 37, 'n_arrival_product01.jpg', 0, 0, 0, 127),
+(2, 1, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 0, 0, 0, 127),
+(3, 1, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 0, 0, 0, 127),
+(4, 1, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 0, 0, 0, 127),
+(5, 3, 'Winter Jackets', 30, 'n_arrival_product05.jpg', 0, 0, 0, 60),
+(6, 3, 'Women Shoes', 30, 'n_arrival_product04.jpg', 0, 0, 0, 60),
+(7, 5, 'Winter Jackets', 30, 'n_arrival_product05.jpg', 0, 0, 0, 60),
+(8, 5, 'Women Shoes', 30, 'n_arrival_product04.jpg', 0, 0, 0, 60),
+(9, 6, 'Bomber in Cotton', 37, 'n_arrival_product01.jpg', 0, 5, 0, 37),
+(10, 7, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 7, 0, 90),
+(11, 7, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 7, 0, 90),
+(12, 7, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 7, 0, 90),
+(13, 11, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 7, 0, 60),
+(14, 11, 'Winter Jackets', 30, 'n_arrival_product05.jpg', 5, 7, 0, 60),
+(15, 12, 'Winter Jackets', 30, 'n_arrival_product05.jpg', 3, 3, 0, 60),
+(16, 12, 'Women Shoes', 30, 'n_arrival_product04.jpg', 1, 1, 0, 60),
+(17, 13, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 7, 0, 60),
+(18, 13, 'Women Shoes', 30, 'n_arrival_product04.jpg', 1, 2, 0, 60),
+(19, 15, 'Women Shoes', 30, 'n_arrival_product04.jpg', 1, 2, 0, 60),
+(20, 15, 'Winter Jackets', 30, 'n_arrival_product05.jpg', 4, 2, 0, 60),
+(21, 17, 'Winter Jackets', 30, 'n_arrival_product05.jpg', 4, 2, 0, 150),
+(22, 17, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 3, 3, 0, 150),
+(23, 17, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 4, 3, 0, 150),
+(24, 17, 'Women Shoes', 30, 'n_arrival_product04.jpg', 5, 7, 0, 150),
+(25, 17, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 3, 2, 0, 150),
+(26, 18, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 3, 0, 67),
+(27, 18, 'Bomber in Cotton', 37, 'n_arrival_product01.jpg', 3, 4, 0, 67),
+(28, 19, 'Women Shoes', 30, 'n_arrival_product04.jpg', 5, 3, 0, 60),
+(29, 19, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 3, 3, 0, 60),
+(30, 21, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 3, 0, 30),
+(31, 23, 'Exclusive Handbags', 30, 'n_arrival_product02.jpg', 5, 7, 0, 30),
+(32, 24, 'Women Shoes', 30, 'n_arrival_product04.jpg', 5, 3, 0, 30);
+
+>>>>>>> b3e78136ce4f9037bef42b750e06b8b6f5b12ba5
 -- --------------------------------------------------------
 
 --
@@ -75,6 +156,17 @@ CREATE TABLE `color` (
   `id` int(11) NOT NULL,
   `color_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `color`
+--
+
+INSERT INTO `color` (`id`, `color_name`) VALUES
+(1, 'Blue'),
+(2, 'Black'),
+(3, 'Red'),
+(4, 'Yellow'),
+(7, 'Green');
 
 -- --------------------------------------------------------
 
@@ -236,13 +328,21 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 
 --
 -- AUTO_INCREMENT cho bảng `bill_details`
 --
 ALTER TABLE `bill_details`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -254,7 +354,11 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `color`
 --
 ALTER TABLE `color`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 
 --
 -- AUTO_INCREMENT cho bảng `product`
