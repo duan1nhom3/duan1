@@ -36,7 +36,6 @@ session_start();
                     $selectsize = selectsize($size);
                     $spadd = [$id,$pd_name,$price,$img,$selectsize['size'],$selectcolor['color_name'],$size,$color];
                     array_push($_SESSION['mycart'],$spadd);
-                    foreach($_SESSION['mycart'] as $cart){var_dump($cart[7]);};
                 }
                 include "site/cartdemo.php";
                 break;

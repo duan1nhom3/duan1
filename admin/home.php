@@ -107,79 +107,7 @@
               <!-- / div trống-->
             </div>
            </div>
-            <!-- / col-12 -->
-             <!-- col-12 -->
-            <div class="col-md-12">
-                <div class="tile">
-                  <h3 class="tile-title">Khách hàng mới</h3>
-                <div>
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Tên khách hàng</th>
-                        <th>Ngày sinh</th>
-                        <th>Số điện thoại</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>#183</td>
-                        <td>Hột vịt muối</td>
-                        <td>21/7/1992</td>
-                        <td><span class="tag tag-success">0921387221</span></td>
-                      </tr>
-                      <tr>
-                        <td>#219</td>
-                        <td>Bánh tráng trộn</td>
-                        <td>30/4/1975</td>
-                        <td><span class="tag tag-warning">0912376352</span></td>
-                      </tr>
-                      <tr>
-                        <td>#627</td>
-                        <td>Cút rang bơ</td>
-                        <td>12/3/1999</td>
-                        <td><span class="tag tag-primary">01287326654</span></td>
-                      </tr>
-                      <tr>
-                        <td>#175</td>
-                        <td>Hủ tiếu nam vang</td>
-                        <td>4/12/20000</td>
-                        <td><span class="tag tag-danger">0912376763</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
 
-              </div>
-            </div>
-             <!-- / col-12 -->
-        </div>
-      </div>
-      <!--END left-->
-      <!--Right-->
-      <div class="col-md-12 col-lg-6">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="tile">
-              <h3 class="tile-title">Dữ liệu 6 tháng đầu vào</h3>
-              <div class="embed-responsive embed-responsive-16by9">
-                <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="tile">
-              <h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
-              <div class="embed-responsive embed-responsive-16by9">
-                <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!--END right-->
     </div>
 
 
