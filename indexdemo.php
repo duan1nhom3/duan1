@@ -1,11 +1,15 @@
 <?php
 session_start();
     include "dao/pdo.php";
-    include "dao/products.php";
-    include "dao/bill.php";
+     include "dao/bill.php";
+     include "dao/categories.php";
+     include "dao/products.php";
+     include "dao/img.php";
+     include "dao/size.php";
+     include "dao/color.php";
 
 
-    $products = loadallpd();
+    $products = loadallpd(0,'');
     if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] =[];
     // controller
     if (isset($_GET['act'])) {
@@ -36,7 +40,6 @@ session_start();
                     $selectsize = selectsize($size);
                     $spadd = [$id,$pd_name,$price,$img,$selectsize['size'],$selectcolor['color_name'],$size,$color];
                     array_push($_SESSION['mycart'],$spadd);
-                    foreach($_SESSION['mycart'] as $cart){var_dump($cart[7]);};
                 }
                 include "site/cartdemo.php";
                 break;

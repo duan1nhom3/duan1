@@ -3489,16 +3489,16 @@ header.side-header {
     margin-top: 35px;
     margin-bottom: 20px;
 }
-.cart-plus-minus {
+/* .cart-plus-minus {
     width: 88px;
     flex: 0 0 88px;
     margin-bottom: 15px;
     margin-right: 20px;
 }
-.cart-plus-minus form {
+.cart-plus-minus>div {
     position: relative;
 }
-.cart-plus-minus form input {
+.cart-plus-minus>div>input {
     width: 100%;
     border: 1px solid #f0f0f0;
     padding: 15px 45px 15px 15px;
@@ -3507,7 +3507,7 @@ header.side-header {
     font-family: 'Jost', sans-serif;
     color: #544842;
     font-weight: 500;
-}
+} */
 .qtybutton-box {
     position: absolute;
     right: 1px;
@@ -3598,14 +3598,18 @@ header.side-header {
     color: #403a37;
     font-weight: 600;
 }
-.perched-info > .btn {
-    background: #36363b;
+.perched-info  .btn {
+    background-color: #36363b;
     color: #fff;
     margin-bottom: 15px;
     padding: 18px 31px;
     height: 55px;
     margin-right: 35px;
     box-shadow: none;
+}
+.perched-info  .btn:hover {
+    background-color: red;
+    color: black;
 }
 .wishlist-compare {
     margin-bottom: 15px;
@@ -3872,6 +3876,13 @@ header.side-header {
 }
 .continue-shopping .btn {
     background: #36363b;
+    color: #fff;
+    box-shadow: none;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.delallcart .btn {
+    background: #e93a0e;
     color: #fff;
     box-shadow: none;
     margin-top: 20px;
@@ -4184,6 +4195,7 @@ header.side-header {
 	transform: translateX(0);
 	opacity: 1;
 }
+
 .tab-pane.active {
     animation: slide-down .3s ease-out;
 }
