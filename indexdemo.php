@@ -1,11 +1,15 @@
 <?php
 session_start();
     include "dao/pdo.php";
-    include "dao/products.php";
-    include "dao/bill.php";
+     include "dao/bill.php";
+     include "dao/categories.php";
+     include "dao/products.php";
+     include "dao/img.php";
+     include "dao/size.php";
+     include "dao/color.php";
 
 
-    $products = loadallpd();
+    $products = loadallpd(0,'');
     if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] =[];
     // controller
     if (isset($_GET['act'])) {

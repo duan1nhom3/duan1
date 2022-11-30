@@ -110,6 +110,7 @@
         <script src="layout/js/nav-tool.js"></script>
         <script src="layout/js/plugins.js"></script>
         <script src="layout/js/main.js"></script>
+        <script src="layout/js/index.js"></script>
     </body>
 
 <!-- Mirrored from themepixer.com/demo/html/layout/layout/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 May 2021 08:03:36 GMT -->

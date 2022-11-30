@@ -1,12 +1,12 @@
- 
+
     <!doctype html>
     <html class="no-js" lang="">
         
-    <!-- Mirrored from themepixer.com/demo/html/layout/layout/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 May 2021 08:01:01 GMT -->
+    
     <head>
             <meta charset="utf-8">
             <meta http-equiv="x-ua-compatible" content="ie=edge">
-            <title>Adara - Modern & Multipurpose eCommerce Template</title>
+            <title>MELIA-Cửa hàng thời trang nữ đa phong cách</title>
             <meta name="description" content="">
             <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -29,12 +29,13 @@
             <link rel="stylesheet" href="layout/css/default.css">
             <link rel="stylesheet" href="layout/css/style.css">
             <link rel="stylesheet" href="layout/css/responsive.css">
+            <link rel="stylesheet" href="layout/css/index.css">
         </head>
         <body>
     
     
             <!-- preloader  -->
-            <div id="preloader">
+            <!-- <div id="preloader">
                 <div id="ctn-preloader" class="ctn-preloader">
                     <div class="animation-preloader">
                         <div class="spinner"></div>
@@ -56,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- preloader end -->
     
     
@@ -78,13 +79,34 @@
                             </div>
                             <div class="col-xl-6 col-lg-5 col-md-6">
                                 <div class="header-top-offer">
-                                    <p>SUMMER SALE UP TO <span>70% OFF.</span> SHOP NOW</p>
+                                    <p>GIẢM GIÁ LÊN ĐẾN <span>70% .</span> MUA NGAY</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="header-top-action">
                                     <ul>
-                                        <li class="sign-in"><a href="#">Sign In</a></li>
+                                    <?php
+                                        if (isset($_SESSION['user'])) {
+                                        extract($_SESSION['user']);
+                                    ?>
+                                        <li class="dropdown text-end"> 
+                                        
+                                            <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton">
+                                            <img src="layout/img/product/<?=$img?>" alt="mdo" width="32" height="32" class="rounded-circle">
+                                            </a>
+                                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" >Xin chào <?=$fullname?></a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=capnhattaikhoan">Cập nhật tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=thongtintaikhoan">Thông tin tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=doimk">Đổi mật khẩu</a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=mybill">Đơn hàng của tôi</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="index.php?act=logout">Sign out</a></li>
+                                            </ul>
+                                        </li>
+                                    <?php }else{ ?>
+                                        <li class="sign-in"><a href="index.php?act=login">ĐĂNG NHẬP</a></li>
+                                    <?php }?>
                                         <li class="wish-list"><a href="#"><i class="flaticon-heart-shape-outline"></i></a></li>
                                         <li class="header-shop-cart"><a href="#"><i class="flaticon-shopping-bag"></i><span>0</span></a>
                                             <ul class="minicart">
@@ -149,7 +171,7 @@
                                             <a href="index.html" class="main-logo"><img src="layout/img/logo/w_logo.png" alt="Logo"></a>
                                             <a href="index.html" class="sticky-logo"><img src="layout/img/logo/logo.png" alt="Logo"></a>
                                         </div>
-                                        <div class="header-category d-none d-lg-block">
+                                        <!-- <div class="header-category d-none d-lg-block">
                                             <a href="#" class="cat-toggle"><i class="fas fa-bars"></i>ALL DEPARTMENT</a>
                                             <ul class="category-menu">
                                                 <li class="has-dropdown"><a href="#">Accessories & Parts</a>
@@ -315,122 +337,23 @@
                                                 <li><a href="#">Audio Amplifier Boards</a></li>
                                                 <li><a href="#">TV Sticks</a></li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                         <div class="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul class="navigation">
-                                                <li class="active menu-item-has-children has--mega--menu"><a href="#">Home</a>
-                                                    <ul class="mega--menu--wrap scroll">
-                                                        <li>
-                                                            <a href="index.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_01.jpg" alt=""></span>
-                                                                <span class="text">Home style One</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="active">
-                                                            <a href="index-2.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_02.jpg" alt=""></span>
-                                                                <span class="text">Home style Two</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-3.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_03.jpg" alt=""></span>
-                                                                <span class="text">Home style Three</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-4.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_04.jpg" alt=""></span>
-                                                                <span class="text">Home style four</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-5.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_05.jpg" alt=""></span>
-                                                                <span class="text">Home style five</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-6.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_06.jpg" alt=""></span>
-                                                                <span class="text">Home style six</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-7.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_07.jpg" alt=""></span>
-                                                                <span class="text">Home style seven</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-8.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_08.jpg" alt=""></span>
-                                                                <span class="text">Home style eight</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-9.html">
-                                                                <span class="img"><img src="layout/img/home-demo/home_09.jpg" alt=""></span>
-                                                                <span class="text">Home style nine</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has--mega--menu"><a href="#">Shop</a>
-                                                    <ul class="mega-menu">
-                                                        <li class="mega-menu-wrap">
-                                                            <ul class="mega-menu-col">
-                                                                <li class="mega-title"><a href="shop.html">SHOP PAGES</a></li>
-                                                                <li><a href="shop-sidebar.html">Right Sidebar</a></li>
-                                                                <li><a href="shop-sidebar.html">Left Sidebar</a></li>
-                                                                <li><a href="shop.html">Hidden sidebar</a></li>
-                                                                <li><a href="shop.html">Filters area</a></li>
-                                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                                <li><a href="cart.html">Cart Page</a></li>
-                                                                <li><a href="checkout.html">Checkout Page</a></li>
-                                                            </ul>
-                                                            <ul class="mega-menu-col">
-                                                                <li class="mega-title"><a href="#">FEATURES</a></li>
-                                                                <li><a href="shop-sidebar.html">Variable Product</a></li>
-                                                                <li><a href="shop-sidebar.html">External Product</a></li>
-                                                                <li><a href="shop-sidebar.html">Other Shop Pages</a></li>
-                                                                <li><a href="shop-sidebar.html">Categories</a></li>
-                                                                <li><a href="shop-sidebar.html">Collection</a></li>
-                                                                <li><a href="shop-sidebar.html">LookBook</a></li>
-                                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                            </ul>
-                                                            <ul class="mega-menu-col sub-cat-post">
-                                                                <li>
-                                                                    <a href="shop-sidebar.html">
-                                                                        <img src="layout/img/product/sub_menu_img01.jpg" alt="">
-                                                                        <span class="btn">Man Shop</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="mega-menu-col sub-cat-post">
-                                                                <li>
-                                                                    <a href="shop-sidebar.html">
-                                                                        <img src="layout/img/product/sub_menu_img02.jpg" alt="">
-                                                                        <span class="btn">Women’s Shop</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                <li class="active menu-item-has-children has--mega--menu"><a href="index.php?act=home">Trang chủ</a></li>     
+
+                                                <li class="has--mega--menu"><a href="index.php?act=productspage">Sản phẩm</a></li>
+                                                
                                                 <li><a href="about-us.html">About Us</a></li>
-                                                <li class="menu-item-has-children"><a href="#">blog</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog.html">Our Blog</a></li>
-                                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                                    </ul>
-                                                </li>
+                                                
+                                                <li class="menu-item-has-children"><a href="#">blog</a></li>
+                                                
                                                 <li><a href="contact.html">Contact Us</a></li>
                                             </ul>
                                         </div>
                                         <div class="header-action d-none d-md-block">
                                             <ul>
-                                                <li class="shipping-offer">Free Shipping on Orders <span>$39+</span></li>
+                                                <li class="shipping-offer">Miễn phí vận chuyển cho đơn hàng từ <span>199.000VNĐ</span></li>
                                                 <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search-interface-symbol"></i></a></li>
                                                 <li class="sidebar-toggle-btn"><a href="#" class="navSidebar-button"><img src="layout/img/icon/sidebar_toggle_icon.png" alt=""></a></li>
                                             </ul>
@@ -522,25 +445,23 @@
                                 <div class="sidebar-info-contents">
                                     <div class="content-inner">
                                         <div class="logo mb-30">
-                                            <a href="index.html"><img src="layout/img/logo/logo.png" alt=""></a>
+                                            <a href="index.html"><img src="layout/img/logo/logoxoaphonghoanchinh.png" alt="" width="40%"></a>
                                         </div>
-                                        <div class="content-box">
-                                            <p>WooCommerce and WordPress are both free, open source software reasons many ...</p>
-                                        </div>
+                    
                                         <div class="contact-info">
-                                            <h4 class="title">CONTACT US</h4>
+                                            <h4 class="title">LIÊN HỆ VỚI CHÚNG TÔI</h4>
                                             <ul>
-                                                <li><span class="flaticon-phone-call"></span><a href="tel:123456789">+9 325 444 0000</a></li>
-                                                <li><span class="flaticon-email"></span><a href="mailto:adara@info.com">adara@info.com</a></li>
-                                                <li><span class="flaticon-place"></span>71 Park Lan Street 2355 NY</li>
+                                                <li><span class="flaticon-phone-call"></span><a href="#">0123456789</a></li>
+                                                <li><span class="flaticon-email"></span><a href="#">melia@fpt.edu.vn</a></li>
+                                                <li><span class="flaticon-place"></span>Tòa nhà FPT Polytechnic, Phố Trịnh Văn Bô, Nam Từ Liêm, Hà Nội.</li>
                                             </ul>
                                         </div>
                                         <div class="oc-newsletter">
-                                            <h4 class="title">NEWSLETTER</h4>
-                                            <p>Fill your email below to subscribe to my newsletter</p>
+                                            <h4 class="title">BẢN TIN</h4>
+                                            <p>Điền email của bạn vào đây để nhận thông báo từ chúng tôi</p>
                                             <form action="#">
                                                 <input type="email" placeholder="Email...">
-                                                <button class="btn">Subscribe</button>
+                                                <button class="btn">Đặt mua</button>
                                             </form>
                                         </div>
                                         <div class="oc-social">
@@ -553,32 +474,7 @@
                                                 <li><a href="#"><i class="fab fa-google"></i></a></li>
                                             </ul>
                                         </div>
-                                        <div class="oc-bottom">
-                                            <div class="currency">
-                                                <form action="#">
-                                                    <label>Currency</label>
-                                                    <select name="select">
-                                                        <option value="">USD</option>
-                                                        <option value="">AUE</option>
-                                                        <option value="">SAR</option>
-                                                        <option value="">INR</option>
-                                                        <option value="">BDT</option>
-                                                    </select>
-                                                </form>
-                                            </div>
-                                            <div class="language">
-                                                <form action="#">
-                                                    <label>Language</label>
-                                                    <select name="select">
-                                                        <option value="">English</option>
-                                                        <option value="">Spanish</option>
-                                                        <option value="">Turkish</option>
-                                                        <option value="">Russian</option>
-                                                        <option value="">Chinese</option>
-                                                    </select>
-                                                </form>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -1,4 +1,17 @@
 <?php
+
+function loadusercomment($id_user){
+    $sql = "select*from user where id = $id_user";
+    $user = pdo_query_one($sql);
+    return $user;
+}
+
+function checklogin($email,$pass){
+    $sql = "select*from user where email = '$email' and password='$pass'";
+    $user = pdo_query_one($sql);
+    return $user;
+}
+
 function loadall_user(){
     $sql = 'select * from user order by id desc';
     $list_user = pdo_query($sql);
@@ -21,4 +34,8 @@ function update_user($id,$fullname,$password,$img,$email,$address,$phone_number)
     $sql = "UPDATE `user` SET `fullname`='$fullname',`email`='$email',`password`='$password',`img`='$img',`address`='$address',`phone_number`='$phone_number' WHERE id=".$id;
     pdo_execute($sql);
 }
+?>
+
+
 //role_id`='[value-8]'
+
