@@ -25,5 +25,6 @@
     Tên loại <br>
      <input type="text"> <br>
     <button>Thêm mới</button>
+    111111
 </body>
 </html>
