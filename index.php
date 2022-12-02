@@ -1,5 +1,5 @@
 <?php
-ob_start();
+    ob_start();
     session_start();
     
     include "dao/pdo.php";
@@ -83,7 +83,6 @@ ob_start();
                     $id_user = $_POST['id_user'];
                     $id_pd = $_POST['id_pd'];
                     insertcomment($content,$id_user,$id_pd);
-                    var_dump($id);
                     header('location: index.php?act=product_details&id='.$id.'');
                 }
                 include "site/products_details.php";
@@ -103,7 +102,16 @@ ob_start();
                 include "site/login.php";
                 break;
 
-
+                case 'register':
+                    if (isset($_POST['register'])) {
+                        $hoten = $_POST['hoten'];
+                        $email = $_POST['email'];
+                        $pass = $_POST['pass'];
+                        $checkdn = register($hoten,$email,$pass);
+                        header("location: index.php?act=login");
+                    }
+                    include "site/register.php";
+                    break;    
 
             case 'logout':
                 session_unset();
