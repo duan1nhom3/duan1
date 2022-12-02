@@ -33,7 +33,7 @@
             <p>Số điện thoại: <?=$phone_number?></p>
             <p>Email: <?=$email?></p>
             <p>Phương thức thanh toán: <?=$method?></p>
-            <p>Tổng tiền đã thanh toán: $<?=$total?></p>
+            <p>Tổng tiền đã thanh toán: <?=$total?>.000 VND</p>
         </div>
     </div>
     <div class="ctdh">

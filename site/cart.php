@@ -90,8 +90,7 @@
                                                 <td class="product-delete"><a href="#"><i class="flaticon-trash"></i></a></td>
                                             </tr> -->
                                         </tbody>
-                                        <tr>Tổng đơn hàng</tr>
-                                        <tr><?= $total?></tr>
+                                        
                                     </table>
                                 </div>
                                 <div class="shop-cart-bottom mt-20">
@@ -106,28 +105,15 @@
                                 </div>
                             </div>
                             <div class="cart-total pt-95">
-                                <h3 class="title">CART TOTALS</h3>
+                                <h3 class="title">Giá trị đơn hàng</h3>
                                 <div class="shop-cart-widget">
                                     <form action="#">
                                         <ul>
-                                            <li class="sub-total"><span>SUBTOTAL</span> $ 136.00</li>
-                                            <li>
-                                                <span>SHIPPING</span>
-                                                <div class="shop-check-wrap">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                        <label class="custom-control-label" for="customCheck1">FLAT RATE: $15</label>
-                                                    </div>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                                        <label class="custom-control-label" for="customCheck2">FREE SHIPPING</label>
-                                                    </div>
-                                                    <a href="#" class="calculate">Calculate shipping</a>
-                                                </div>
-                                            </li>
-                                            <li class="cart-total-amount"><span>TOTAL</span> <span class="amount">$ 151.00</span></li>
+                                        
+        
+                                            <li class="cart-total-amount"><span>Tổng đơn hàng</span> <span class="amount"><?= $total?></span></li>
                                         </ul>
-                                        <a href="checkout.html" class="btn">PROCEED TO CHECKOUT</a>
+                                        <a href="index.php?act=thanhtoan" class="btn">THANH TOÁN</a>
                                     </form>
                                 </div>
                             </div>

@@ -19,7 +19,7 @@
                     <a href="#" class="forgetpass">Quên mật khẩu?</a>
                     <input type="submit" name="login" value="Đăng nhập" class="btn1">
                 </form>
-                <a href="#" class="dnthave">Chưa có tài khoản? Đăng ký ngay</a>
+                <a href="index.php?act=register" class="dnthave">Chưa có tài khoản? Đăng ký ngay</a>
             </div>
 
         </div>
