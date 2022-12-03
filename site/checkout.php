@@ -75,8 +75,8 @@
             <h6 class="my-0"><?= $stt?>.</h6>
             <img style="border-radius: 10px;" src="layout/img/product/<?php echo $cart[3]?>" alt="" width="50px">
             <small class="text-muted"><?php echo $cart[1]?></small>
-            <span class="text-muted" style="margin-left: 150px;">Số lượng <?php echo $cart[6]?></span>
-            <span class="text-muted" style="margin-left: 150px;"><?php echo $cart[7]?>.000 VND</span>
+            <span class="text-muted" style="margin-left: 100px;"><?php echo $cart[7]?>.000 VND</span>
+            <span class="text-muted" style="margin-left: 50px;">Số lượng <?php echo $cart[6]?></span>
             
           </div>
           
