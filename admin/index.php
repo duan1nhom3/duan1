@@ -14,7 +14,7 @@
      include "../dao/pdo.php";
 
      
-    $products = loadallpd(0,'');
+    $products = loadallpd(0,'','');
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
 
@@ -334,6 +334,11 @@
                 $list_user = loadall_user();
                 include "user/list.php";
 
+                break;
+            case 'comment':
+                $user = loadall_user();
+                $pd = loadallpd();
+                include "comment/list.php";
                 break;
         default:
             include "home.php";
