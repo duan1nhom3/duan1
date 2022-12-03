@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <div>
         <table border="1">
             <thead>
@@ -18,7 +20,8 @@
                 <th>date</th>
                 <th>action</th>
             </tr>
-        </thead>
+
+            </thead>
         <tbody>
             <?php foreach($show_comment as $sc):?>
                 <tr>
@@ -35,3 +38,4 @@
     </div>
 </body>
 </html>
+

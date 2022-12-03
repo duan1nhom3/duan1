@@ -96,9 +96,9 @@
                                             </a>
                                             <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuButton">
                                             <li><a class="dropdown-item" >Xin chào <?=$fullname?></a></li>
-                                            <li><a class="dropdown-item" href="index.php?act=capnhattaikhoan">Cập nhật tài khoản</a></li>
-                                            <li><a class="dropdown-item" href="index.php?act=thongtintaikhoan">Thông tin tài khoản</a></li>
-                                            <li><a class="dropdown-item" href="index.php?act=doimk">Đổi mật khẩu</a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=updateinfo">Cập nhật tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=infouser">Thông tin tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="index.php?act=doipass">Đổi mật khẩu</a></li>
                                             <li><a class="dropdown-item" href="index.php?act=mybill">Đơn hàng của tôi</a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li><a class="dropdown-item" href="index.php?act=logout">Sign out</a></li>

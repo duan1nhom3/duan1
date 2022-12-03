@@ -65,7 +65,7 @@
                             foreach($_SESSION['addcart'] as $cart){
                                
                                 $stt+=1; 
-                                $tongtien += $cart[2];
+                                $tongtien += $cart[7];
                           
                             
                         ?>
@@ -75,7 +75,9 @@
             <h6 class="my-0"><?= $stt?>.</h6>
             <img style="border-radius: 10px;" src="layout/img/product/<?php echo $cart[3]?>" alt="" width="50px">
             <small class="text-muted"><?php echo $cart[1]?></small>
-            <span class="text-muted" style="margin-left: 150px;"><?php echo $cart[2]?>.000 VND</span>
+            <span class="text-muted" style="margin-left: 150px;">Số lượng <?php echo $cart[6]?></span>
+            <span class="text-muted" style="margin-left: 150px;"><?php echo $cart[7]?>.000 VND</span>
+            
           </div>
           
         </li>
@@ -86,7 +88,7 @@
           <span class="text-success"></span>
         </li>
         <li class="list-group-item d-flex justify-content-between">
-          <span>Tổng tiền (VND</span>
+          <span>Tổng tiền (VND)</span>
           <strong><?php echo $tongtien?>.000 VND</strong>
         </li>
       </ul>
@@ -97,8 +99,11 @@
       <form action="indexdemo.php?act=addbill" method="post">
         <div class="row">
           <div class="col-md-6 mb-3">
+            <?php if (isset($_SESSION['user'])) {
+              extract($_SESSION['user']);
+            } ?>
             <label for="firstName">Họ và Tên</label>
-            <input type="text" class="form-control" name="hoten" placeholder="Họ tên" style="width: 835px;" required>
+            <input type="text" class="form-control" name="hoten" placeholder="Họ tên" style="width: 835px;" value="<?= isset($fullname) ? $fullname : '' ?>" required>
             <div class="invalid-feedback">
               Điền thông tin.
             </div>
@@ -106,7 +111,7 @@
         </div>
         <div class="mb-3">
           <label for="email">Email <span class="text-muted"></span></label>
-          <input type="email" class="form-control" name="email" placeholder="you@example.com">
+          <input type="email" class="form-control" name="email" value="<?= isset($email) ? $email : '' ?>" placeholder="you@example.com">
           <div class="invalid-feedback">
             Điền đúng địa chỉ eamil.
           </div>
@@ -115,7 +120,7 @@
 
         <div class="mb-3">
           <label for="address">Địa chỉ</label>
-          <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ" required>
+          <input type="text" class="form-control" name="diachi" value="<?= isset($address) ? $address : '' ?>" placeholder="Địa chỉ" required>
           <div class="invalid-feedback">
             Điền địa chỉ chính xác.
           </div>
@@ -123,7 +128,7 @@
 
         <div class="mb-3">
           <label for="address2">Số điện thoại<span class="text-muted"></span></label>
-          <input type="text" class="form-control" name="sdt" placeholder="xxxx">
+          <input type="text" class="form-control" name="sdt" value="<?= isset($phone_number) ? $phone_number : '' ?>" placeholder="xxxx">
         </div>
 
 
@@ -176,7 +181,7 @@
         
         <a href="indexdemo.php?act=addbill"><button class="btn btn-primary btn-lg btn-block" type="submit" name="addbill">Xác nhận thanh toán</button></a>
       </form>
-      <a href="indexdemo.php?act=viewcart"><button class="btn btn-primary btn-lg btn-block mt-5" type="submit">Quay lại giỏ hàng</button></a>
+      <a href="index.php?act=cart"><button class="btn btn-primary btn-lg btn-block mt-5" type="submit">Quay lại giỏ hàng</button></a>
     </div>
   </div>
 
