@@ -16,7 +16,7 @@
        <!-- col-6 -->
        <!-- <div class="col-md-6">
         <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
-          <!-- <div class="info">
+          <! <div class="info">
             <h4>Tổng khách hàng</h4>
             <p><b>56 khách hàng</b></p>
             <p class="info-tong">Tổng số khách hàng được quản lý.</p>

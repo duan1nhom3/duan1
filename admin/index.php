@@ -1,11 +1,11 @@
 <?php
      include "header.php";
-     include "../dao/bill.php";
-     include "../dao/categories.php";
-     include "../dao/products.php";
-     include "../dao/comment.php";
-     include "../dao/user.php";
-     include "../dao/pdo.php";
+     include "dao/bill.php";
+     include "dao/categories.php";
+     include "dao/products.php";
+     include "dao/comment.php";
+     include "dao/user.php";
+     include "dao/pdo.php";
      
 
     if (isset($_GET['act'])) {
@@ -79,6 +79,18 @@
                 $list_user = loadall_user();
                 include "user/list.php";
                 break;
+            case 'comment': 
+                $show_comment=comment();
+                include "comment/list.php";
+                break;
+            case 'delcomment':
+                if (isset($_GET['id'])&&($_GET['id']>0)) {
+                deletecomment($_GET['id']);
+                }
+                $show_comment=comment();
+                include "comment/list.php";
+                break;
+
 
 
         default:
