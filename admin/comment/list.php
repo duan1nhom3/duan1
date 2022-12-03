@@ -49,16 +49,16 @@
                         <tr>
                             <td class="text-center"><?=$sc['id']?></td>
                             <td class="text-center">
-                                    <?php foreach ($user as $user) : ?>
-                                        <?php if ($sc['id_user'] === $user['id']) : ?>
-                                            <?= $user['fullname']  ?>
+                                    <?php foreach ($user as $us) : ?>
+                                        <?php if ($sc['id_user'] === $us['id']) : ?>
+                                            <?= $us['fullname']  ?>
                                         <?php endif ?>
                                     <?php endforeach ?>
                             </td>
                             <td class="text-center">
-                                    <?php foreach ($pd as $pd) : ?>
-                                        <?php if ($sc['id_product'] === $pd['id']) : ?>
-                                            <?= $pd['product_name']  ?>
+                                    <?php foreach ($pd as $pr) : ?>
+                                        <?php if ($sc['id_product'] === $pr['id']) : ?>
+                                            <?= $pr['product_name']  ?>
                                         <?php endif ?>
                                     <?php endforeach ?>
                             </td>
