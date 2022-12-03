@@ -39,7 +39,7 @@
 		$str = preg_replace("/( )/", '-', $str);
 		return $str;
 	}
-    $products = loadallpd(0,'');
+    $products = loadallpd(0,'','');
     $cate = loadallcate();
     $pdnew = loadpdnew();
     $pdsale = loadpdsale();
@@ -66,8 +66,15 @@
                 }else{
                     $kw = '';
                 }
-                $products_cate = loadallpd($id_cate,$kw);
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                }else{
+                    $page = '';
+                }
                 
+                $products_cate = loadallpd($id_cate,$kw,$page);
+                $count = countsp();
+                $pagenumber = ceil($count["countpd"]/9);
                 include "site/productspage.php";
                 break;
 
