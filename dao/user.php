@@ -11,7 +11,10 @@ function checklogin($email,$pass){
     $user = pdo_query_one($sql);
     return $user;
 }
-
+function register($hoten,$email,$pass){
+    $sql = "INSERT INTO `user`(`fullname`, `email`, `password`,`role_id`) VALUES ('$hoten','$email','$pass','1')";
+    pdo_execute($sql);
+}
 function loadall_user(){
     $sql = 'select * from user order by id desc';
     $list_user = pdo_query($sql);

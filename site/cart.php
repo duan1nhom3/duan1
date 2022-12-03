@@ -69,39 +69,19 @@
                                             </tr>
                                             <?php $stt+=1;$total+=$cart[7]?>
                                             <?php endforeach?>
-                                            <!-- <tr>
-                                                <td class="product-thumbnail"><a href="shop-details.html"><img src="layout/img/product/cart_img02.jpg" alt=""></a></td>
-                                                <td class="product-name">
-                                                    <h4><a href="shop-details.html">Travelling Bags</a></h4>
-                                                </td>
-                                                <td class="product-price">$ 37.00</td>
-                                                <td class="product-quantity">
-                                                    <div class="cart-plus-minus">
-                                                        <form action="#" class="num-block">
-                                                            <input type="text" class="in-num" value="1" readonly="">
-                                                            <div class="qtybutton-box">
-                                                                <span class="plus"><img src="layout/img/icon/plus.png" alt=""></span>
-                                                                <span class="minus dis"><img src="layout/img/icon/minus.png" alt=""></span>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal"><span>$ 74.00</span></td>
-                                                <td class="product-delete"><a href="#"><i class="flaticon-trash"></i></a></td>
-                                            </tr> -->
+                                            
                                             <tr>
                                                 <td style="font-weight: bolder;font-size:20px;" colspan="7">Tổng đơn hàng</td>
                                                 <td style="font-weight: bolder;font-size:20px;"><?= $total?>.000 VNĐ</td>
                                             </tr>
                                         </tbody>
                                         
-                                        
                                     </table>
                                 </div>
                                 <div class="shop-cart-bottom mt-20">
                                     
                                     <div class="continue-shopping">
-                                        <a href="shop.html" class="btn">Mua thêm</a>
+                                        <a href="index.php?act=productspage" class="btn">Mua thêm</a>
                                     </div>
 
                                     <div class="delallcart">
@@ -110,28 +90,15 @@
                                 </div>
                             </div>
                             <div class="cart-total pt-95">
-                                <h3 class="title">CART TOTALS</h3>
+                                <h3 class="title">Giá trị đơn hàng</h3>
                                 <div class="shop-cart-widget">
                                     <form action="#">
                                         <ul>
-                                            <li class="sub-total"><span>SUBTOTAL</span> $ 136.00</li>
-                                            <li>
-                                                <span>SHIPPING</span>
-                                                <div class="shop-check-wrap">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                        <label class="custom-control-label" for="customCheck1">FLAT RATE: $15</label>
-                                                    </div>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                                        <label class="custom-control-label" for="customCheck2">FREE SHIPPING</label>
-                                                    </div>
-                                                    <a href="#" class="calculate">Calculate shipping</a>
-                                                </div>
-                                            </li>
-                                            <li class="cart-total-amount"><span>TOTAL</span> <span class="amount">$ 151.00</span></li>
+                                        
+        
+                                            <li class="cart-total-amount"><span>Tổng đơn hàng</span> <span class="amount"><?= $total?>.000 VNĐ</span></li>
                                         </ul>
-                                        <a href="checkout.html" class="btn">PROCEED TO CHECKOUT</a>
+                                        <a href="index.php?act=thanhtoan" class="btn">THANH TOÁN</a>
                                     </form>
                                 </div>
                             </div>
