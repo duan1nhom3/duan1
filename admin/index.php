@@ -336,9 +336,19 @@
 
                 break;
             case 'comment':
+                $show_comment = comment();
                 $user = loadall_user();
-                $pd = loadallpd();
+                $pd = loadallpd(0,'','');
                 include "comment/list.php";
+                break;
+            case 'delcomment':
+                if (isset($_GET['id'])&&($_GET['id']>0)) {
+                    deletecomment($_GET['id']);
+                    }
+                    $show_comment=comment();
+                    $user = loadall_user();
+                    $pd = loadallpd(0,'','');
+                    include "comment/list.php";
                 break;
         default:
             include "home.php";
