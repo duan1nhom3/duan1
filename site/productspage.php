@@ -6,10 +6,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="breadcrumb-content">
-                                <h2>Shop Sidebar</h2>
+                                <h2>Shop</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Shop</li>
                                     </ol>
                                 </nav>
@@ -74,14 +74,17 @@
                             </div>
                             <div class="pagination-wrap">
                                 <ul>
-                                    <li class="prev"><a href="#">Prev</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li class="active"><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
+                                    <?php for ($i=1; $i <= $pagenumber; $i++) { ?>
+                                        <li ><a href="index.php?act=productspage&page=<?=$i?>"> <?=$i?> </a></li>
+                                    <?php }?>
+                                     <!-- <li class="prev"><a href="#">Prev</a></li>
+                                    <li class="active"><a href="index.php?act=productspage">1</a></li>
+                                    <li><a href="index.php?act=productspage&page=2">2</a></li>
+                                    <li><a href="index.php?act=productspage&page=3">3</a></li>
+                                    <li><a href="index.php?act=productspage&page=4">4</a></li>
                                     <li><a href="#">...</a></li>
                                     <li><a href="#">10</a></li>
-                                    <li class="next"><a href="#">Next</a></li>
+                                    <li class="next"><a href="#">Next</a></li> -->
                                 </ul>
                             </div>
                         </div>

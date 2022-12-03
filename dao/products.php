@@ -1,6 +1,6 @@
 <?php
 
-function loadallpd($id_cate,$kw){
+function loadallpd($id_cate,$kw,$page){
     $sql = "select*from product where 1";
     if ($kw != "") {
         $sql.= " and product_name like '%".$kw."%'";
@@ -8,9 +8,22 @@ function loadallpd($id_cate,$kw){
     if ($id_cate > 0) {
         $sql.= " and id_cate = '".$id_cate."'";
     }
+    if ($page == '' || $page == 1) {
+        $begin = 0;
+    }else{
+        $begin = ($page*9)-9;
+    }
+    
+    $sql.= " limit $begin,9";
     $listpd = pdo_query($sql);
+   
     return $listpd;
-}function loadpdbestsell(){
+}
+function countsp(){
+    $sql = "select count(id) as countpd from product";
+    return pdo_query_one($sql);
+}
+function loadpdbestsell(){
     $sql = "select*from product limit 0,10";
     $listpd = pdo_query($sql);
     return $listpd;
