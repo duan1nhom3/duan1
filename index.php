@@ -102,9 +102,166 @@ ob_start();
                 }
                 include "site/login.php";
                 break;
+            case 'signup':
+                if (isset($_POST['signup'])) {
+                    $fullname = $_POST['name'];
+                    $email = $_POST['email'];
+                    $pass = $_POST['pass'];
+                    $repass = $_POST['repass'];
+                    $role = 1;
+                    $file = $_FILES['img'];
+                    $img = $file['name'];
+                    $error = [];
 
+                    $checkemail = checkemail($email);
+                    
+                    if ($fullname == "") {
+                        $error['name'] = "Họ và tên không được bỏ trống";
+                    }
+                    if ($email == "") {
+                        $error['email'] = "Email không được bỏ trống";
+                    }
+                    
+                    if (is_array($checkemail)) {
+                        if ($email==$checkemail['email']) {
+                        $error['email'] = "Email này đã được đăng ký vui lòng nhập một email mới";
+                        }
+                    }
+                    
+                    if ($pass == "") {
+                        $error['pass'] = "Mật khẩu không được bỏ trống";
+                    }
+                    if ($repass == "") {
+                        $error['repass'] = "Nhập lại mật khẩu không được bỏ trống";
+                    }
+                    if ($repass != $pass) {
+                        $error['repass'] = "Mật khẩu nhập lại không chính xác"; 
+                    }
 
+                    if ($file['size'] <= 0) {
+                        $img = "anhmacdinh.jpg";
+                    }
+                    if ($file['size'] > 0) {
+                        $ext = pathinfo($img,PATHINFO_EXTENSION);
+                        if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
+                            $error['img'] = "File không phải là ảnh vui lòng chọn file khác";
+                        }elseif ($file['size'] >= 20000000) {
+                            $error['img'] = "Ảnh phải dưới 2mb";
+                        }
+                    }
+                    if (!$error) {
+                        signup($fullname,$email,$pass,$img,$role);
+                        move_uploaded_file($file['tmp_name'],'layout/img/product/'.$img);
+                        $thongbao="Đăng ký thành công đăng nhập để sử dụng các chức năng";
+                    }
+                }
+                include "site/signup.php";
+                break;
+            
+            case 'forgotpass':
+                if (isset($_POST['forgot'])) {
+                    $email = $_POST['email'];
+                    $fullname = $_POST['name'];
+                    $forgotpass = forgotpass($email,$fullname);
+                    if (is_array($forgotpass)) {
+                        $thongbao = "Mật khẩu của bạn là:" .$forgotpass['password'];
+                    }else{
+                        $thongbao = "Email hoặc Họ tên không chính xác vui lòng thử lại !";
+                    }
+                }
+                include "site/forgotpass.php";
+                break;
+            case 'infouser':
+                include "site/infouser.php";
+                break;
+            
+            case 'updateinfo':
+                if (isset($_POST['capnhat'])) {
+                    $id = $_POST['id'];
+                    $fullname=$_POST['fullname'];                   
+                    $email=$_POST['email'];                                  
+                    $address=$_POST['address'];
+                    $password = $_POST['password'];                  
+                    $phone_number=$_POST['phone_number'];
 
+                    $img = $_FILES['img'];
+                    $hinh = $img['name'];
+                    $anh = $_POST['hinh'];
+                    $error = [];
+        
+                    if ($fullname == "") {
+                        $error['fullname'] = "Họ tên không đưuọc để trống";
+                    }
+                    if ($email == "") {
+                        $error['email'] = "Email không được để trống";
+                    }
+                    
+                    if ($address == "") {
+                        $error['address'] = "Địa chỉ không được bỏ trống";
+                    }
+                    if ($phone_number == "") {
+                        $error['phone'] = "Số điện thoại không được bỏ trống";
+                    }
+                    
+                    
+                    if ($img['size'] <= 0) {
+                        $hinh = $anh;
+                    }
+                    if ($img['size'] > 0 ) {
+                        $ext = pathinfo($hinh,PATHINFO_EXTENSION);
+                        if ($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png') {
+                            $error['img']= "File không phải là ảnh";
+                        }elseif ($img['size'] >= 20000000) {
+                            $error['img'] = "Ảnh phải dưới 2mb";
+                        }
+                    }
+                    if (!$error) {
+                        move_uploaded_file($img['tmp_name'],'layout/img/product/'.$hinh);
+                        update_info($id,$fullname,$email,$hinh,$address,$phone_number);
+                        $thongbao = "Cập nhật thành công";
+                        $_SESSION['user'] = checklogin($email,$password);
+                        // header('location: index.php?act=ds_user');
+                    }
+                }
+                include "site/updateinfo.php";
+                break;
+            case 'doipass':
+                if (isset($_POST['doipass'])) {
+                    $emailss = $_SESSION['user']['email'];
+                    $email = $_POST['email'];
+                    $id = $_SESSION['user']['id'];
+                    $pass = $_SESSION['user']['password'];
+                    $passcu = $_POST['passcu'];
+                    $passmoi = $_POST['passmoi'];
+                    $xacnhan = $_POST['repass'];
+                    $error = [];
+    
+                    if ($passcu == "") {
+                        $error['passcu'] = "Mật khẩu cũ không được bỏ trống";
+                    }
+                    if ($passcu!==$pass) {
+                        $error['passcu'] = "Mật khẩu cũ không chính xác";
+                    }
+                    if ($email != $emailss) {
+                        $error['email'] = "Email không chính xác !";
+                    }
+                    if ($passmoi == "") {
+                        $error['passmoi'] = "Mật khẩu mới không được bỏ trống";
+                    }
+                    if ($xacnhan == "") {
+                        $error['repass'] = "Xác nhận mật khẩu mới không được bỏ trống";
+                    }
+                    if ($xacnhan != $passmoi) {
+                        $error['repass'] = "Xác nhận mật khẩu và mật khẩu mới không giống nhau !";
+                    }
+                    if (!$error) {
+                        doipass($id,$passmoi);
+                        $thongbao = "Đổi mật khẩu thành công";
+                        
+                    } 
+                }
+                include 'site/doipass.php';
+                break;
             case 'logout':
                 session_unset();
                 header('location:index.php');
@@ -119,8 +276,27 @@ ob_start();
                     $size = $_POST['size'];
                     $quantity = $_POST['quantity'];
                     $subtotal = $price*$quantity;
-                    $spadd = [$id,$name,$price,$img,$size,$color,$quantity,$subtotal];
-                    array_push($_SESSION['addcart'],$spadd);
+                    $i = 0;
+                    $kt=0;
+                    if (isset($_SESSION['addcart'])&&(count($_SESSION['addcart'])>0)) {
+                        foreach($_SESSION['addcart'] as $pd){
+                            if ($pd[0] = $id && $pd[4] == $size && $pd[5] == $color) {
+                                $quantity+=$pd[6];
+                                $subtotal = $price*$quantity;
+                                $kt=1;
+
+                                $_SESSION['addcart'][$i][6] = $quantity;
+                                $_SESSION['addcart'][$i][7] = $subtotal;
+                                break;
+                            }
+                            $i++;
+                        }
+                    }
+                    if ($kt==0) {
+                        $spadd = [$id,$name,$price,$img,$size,$color,$quantity,$subtotal];
+                        array_push($_SESSION['addcart'],$spadd);
+                    }
+                    
                 }
                 header('location:index.php?act=cart'); 
                 // include "site/cart.php";

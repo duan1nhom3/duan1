@@ -89,9 +89,13 @@
                                                 <td class="product-subtotal"><span>$ 74.00</span></td>
                                                 <td class="product-delete"><a href="#"><i class="flaticon-trash"></i></a></td>
                                             </tr> -->
+                                            <tr>
+                                                <td style="font-weight: bolder;font-size:20px;" colspan="7">Tổng đơn hàng</td>
+                                                <td style="font-weight: bolder;font-size:20px;"><?= $total?>.000 VNĐ</td>
+                                            </tr>
                                         </tbody>
-                                        <tr>Tổng đơn hàng</tr>
-                                        <tr><?= $total?></tr>
+                                        
+                                        
                                     </table>
                                 </div>
                                 <div class="shop-cart-bottom mt-20">

@@ -49,9 +49,15 @@
                         <tr>
                             <td class="text-center"><?=$pd['id']?></td>
                             <td class="text-center"><?=$pd['product_name']?></td>
-                            <td class="text-center"><?=$pd['price']?></td>
+                            <td class="text-center"><?=$pd['price']?>.000 VNĐ</td>
                             <td class="text-center"><img src="../layout/img/product/<?=$pd['img']?>" alt="" width="70px"></td>
-                            <td class="text-center"><?=$pd['id_cate']?></td>
+                            <td class="text-center">
+                                    <?php foreach ($category as $cate) : ?>
+                                        <?php if ($pd['id_cate'] === $cate['id']) : ?>
+                                            <?= $cate['cate_name']  ?>
+                                        <?php endif ?>
+                                    <?php endforeach ?>
+                            </td>
                             <td class="text-center"><?=$pd['description']?></td>
                             <td class="text-center">
                               

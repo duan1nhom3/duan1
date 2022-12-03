@@ -1,44 +1,88 @@
-<div class="row">  
-                <div class="row formtitle">
-                    <h1>THÊM MỚI USER</h1>
-                </div>
-                <div class="row formcontent ">
-                    <form action="index.php?act=add_user" method="post"  enctype="multipart/form-data">
-                        <div class=""> 
-                            Username <br>
-                            <input type="text" name="fullname"  id="">
-                        </div>
-                        <div class=""> 
-                            Email <br>
-                            <input type="text" name="email"  id="">
-                        </div>
-                        <div class=""> 
-                            IMG <br>
-                          <input type="file" name="img">
-                        </div>
-                        <div class=""> 
-                            Password <br>
-                            <input type="text" name="password"  id="">
-                        </div>
-                        <div class=""> 
-                            Address <br>
-                            <input type="text" name="address"  id="">
-                        </div>
-                        <div class=""> 
-                            Phone Number <br>
-                            <input type="text" name="phone_number"  id="">
-                        </div>
-                        <div class="row mb20">
-                            <input type="submit" name="themmoi" value="Thêm Mới">
-                            <input type="reset" value="Nhập Lại">
-                           <a href="index.php?act=list_user"><input type="button" value="Danh Sách"> </a>
-                        </div>
-                        <?php 
-                        if (isset($thongbao)&&($thongbao!="")) {
-                            echo $thongbao;
-                        }          
-                        ?>
-                    </form>
-                </div>   
+<!--  -->
+<main class="app-content">
+  <div class="app-title">
+    <ul class="app-breadcrumb breadcrumb">
+      <li class="breadcrumb-item"><a href="index.php?act=ds_user">Danh sách người dùng</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tile">
+        <h3 class="tile-title">Thêm người dùng</h3>
+        <div class="text-center text-success bg-success" style="font-size: 40px;padding:20px;">
+          <?= isset($thongbao) ? $thongbao : '' ?>
         </div>
-    </div>
+        <div class="tile-body">
+          <div class="row element-button">
+          </div>
+          <form class="row" action="index.php?act=add_user" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group col-md-3">
+              <label class="control-label">Họ tên</label>
+              <input name="fullname" class="form-control" type="text" value="<?= isset($fullname) ? $fullname : '' ?>">
+              <span style="color:red">
+                <?= isset($error['fullname']) ? $error['fullname'] : '' ?>
+              </span>
+            </div>
+            <div class="form-group col-md-3">
+              <label class="control-label">Email</label>
+              <input name="email" class="form-control" type="email" value="<?= isset($email) ? $email : '' ?>">
+              <span style="color:red">
+                <?= isset($error['email']) ? $error['email'] : '' ?>
+              </span>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label class="control-label">Mật khẩu</label>
+              <input name="password" class="form-control" type="text" value="<?= isset($password) ? $password : '' ?>">
+              <span style="color:red">
+                <?= isset($error['pass']) ? $error['pass'] : '' ?>
+              </span>
+            </div>
+            <div class="form-group col-md-12">
+              <label class="control-label">Ảnh đại diện</label>
+              <div id="myfileupload">
+                <input type="file" name="img">
+                <span style="color:red">
+                  <?= isset($error['img']) ? $error['img'] : '' ?>
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label class="control-label">Địa chỉ</label>
+              <input name="address" class="form-control" type="text" value="<?= isset($address) ? $address : '' ?>">
+              <span style="color:red">
+                <?= isset($error['address']) ? $error['address'] : '' ?>
+              </span>
+            </div>
+            <div class="form-group col-md-3">
+              <label class="control-label">Số điện thoại</label>
+              <input name="phone_number" class="form-control" type="text" value="<?= isset($phone_number) ? $phone_number : '' ?>">
+              <span style="color:red">
+                <?= isset($error['phone']) ? $error['phone'] : '' ?>
+              </span>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="exampleSelect1" class="control-label">Vai trò</label>
+              <select name="role" class="form-control" id="exampleSelect1">
+                <option value="0" selected>-- Vai trò --</option>
+                <?php
+                foreach ($role as $role) {
+                  extract($role);
+                  echo '<option value="' . $id . '">' . $role . '</option>';
+                }
+                ?>
+              </select>
+              <span style="color:red">
+                <?= isset($error['role']) ? $error['role'] : '' ?>
+              </span>
+            </div>
+
+        </div>
+          <input type="submit" name="submit" class="btn btn-save" value="Thêm mới">
+          <button type="reset" class="btn btn-cancel">Nhập lại</button>
+          <a class="btn btn-cancel" href="index.php?act=list">Hủy bỏ</a> <br> <br>
+
+          </form>
+      </div>
+</main>

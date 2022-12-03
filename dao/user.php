@@ -17,8 +17,12 @@ function loadall_user(){
     $list_user = pdo_query($sql);
     return $list_user;
 }
-function add_user($fullname,$email,$password,$img,$address,$phone_number){
-    $sql = "INSERT INTO `user`( `fullname`, `email`, `password`, `img`, `address`, `phone_number`) VALUES ('$fullname','$email','$password','$img','$address','$phone_number')";
+function add_user($fullname,$email,$password,$img,$address,$phone_number,$role){
+    $sql = "INSERT INTO `user`( `fullname`, `email`, `password`, `img`, `address`, `phone_number`, `role_id`) VALUES ('$fullname','$email','$password','$img','$address','$phone_number','$role')";
+    pdo_execute($sql);
+}
+function signup($fullname,$email,$password,$img,$role){
+    $sql = "INSERT INTO `user`( `fullname`, `email`, `password`, `img`, `role_id`) VALUES ('$fullname','$email','$password','$img','$role')";
     pdo_execute($sql);
 }
 function delete_user($id){
@@ -30,12 +34,38 @@ function loadone_user($id){
     $tk = pdo_query_one($sql);
     return $tk;
 }
-function update_user($id,$fullname,$password,$img,$email,$address,$phone_number){
-    $sql = "UPDATE `user` SET `fullname`='$fullname',`email`='$email',`password`='$password',`img`='$img',`address`='$address',`phone_number`='$phone_number' WHERE id=".$id;
+function update_user($id,$fullname,$email,$password,$hinh,$address,$phone_number,$role){
+    $sql = "UPDATE `user` SET `fullname`='$fullname',`email`='$email',`password`='$password',`img`='$hinh',`address`='$address',`phone_number`='$phone_number',`role_id`=$role WHERE id=".$id;
     pdo_execute($sql);
+}
+function update_info($id,$fullname,$email,$hinh,$address,$phone_number){
+    $sql = "UPDATE `user` SET `fullname`='$fullname',`email`='$email',`img`='$hinh',`address`='$address',`phone_number`='$phone_number' WHERE id=".$id;
+    pdo_execute($sql);
+}
+function doipass($id,$password){
+    $sql = "UPDATE `user` SET `password`='$password' WHERE id=".$id;
+    pdo_execute($sql);
+}
+function checkemail($email){
+    $sql = "select*from user where email = '$email'";
+    $email = pdo_query_one($sql);
+    return $email;
+}
+function forgotpass($email,$fullname){
+    $sql = "select*from user where email = '$email' && fullname = '$fullname'";
+    $email = pdo_query_one($sql);
+    return $email;
+}
+
+
+
+function loadrole(){
+    $sql = "select*from role";
+    $role = pdo_query($sql);
+    return $role;
 }
 ?>
 
 
-//role_id`='[value-8]'
+
 
