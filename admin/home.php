@@ -23,7 +23,7 @@
             <p class="info-tong">Tổng số khách hàng được quản lý.</p>
           </div> -->
         </div>
-      </div> -->
+      </div> 
        <!-- col-6 -->
           <div class="col-md-6">
             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>

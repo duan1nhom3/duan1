@@ -49,34 +49,32 @@
                         <tr>
                             <td class="text-center"><?=$sc['id']?></td>
                             <td class="text-center">
-                                    <?php foreach ($category as $cate) : ?>
-                                        <?php if ($pd['id_cate'] === $cate['id']) : ?>
-                                            <?= $cate['cate_name']  ?>
+                                    <?php foreach ($user as $user) : ?>
+                                        <?php if ($sc['id_user'] === $user['id']) : ?>
+                                            <?= $user['fullname']  ?>
                                         <?php endif ?>
                                     <?php endforeach ?>
                             </td>
-                            <td class="text-center"><?=$pd['description']?></td>
+                            <td class="text-center">
+                                    <?php foreach ($pd as $pd) : ?>
+                                        <?php if ($sc['id_product'] === $pd['id']) : ?>
+                                            <?= $pd['product_name']  ?>
+                                        <?php endif ?>
+                                    <?php endforeach ?>
+                            </td>
+                            <td class="text-center"><?=$sc['content']?></td>
+                            <td class="text-center"><?=$sc['date']?></td>
                             <td class="text-center">
                               
-                                <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không')" href="index.php?act=delete_product&id=<?=$pd['id']?>"><button  class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button></a>
+                                <a onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này không')" href="index.php?act=delcomment&id=<?=$sc['id']?>"><button  class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button></a>
                                         
-                                <a href="index.php?act=edit_product&id=<?=$pd['id']?>"><button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button></a>
+                                
                                                         
                             </td>
                         </tr>
                         
                     <?php endforeach ?>
-                    <div class="row element-button">
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" href="index.php?act=addproduct" title="Thêm"><i class="fas fa-plus"></i>
-                                Tạo mới sản phẩm</a>
-                        </div>
-                            
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                                class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                        </div>
-                    </div>
+                    
                     <div class="text-center text-success bg-success" style="font-size: 40px;padding:20px;">
                       <?= isset($thongbao) ? $thongbao :''?>
                     </div>
@@ -102,35 +100,5 @@
     </div>
   </main>
   
-
-
-
-    <div>
-        <table border="1">
-            <thead>
-            <tr>
-                <th>id</th>
-                <th>content</th>
-                <th>id_user</th>
-                <th>id_product</th>
-                <th>date</th>
-                <th>action</th>
-            </tr>
-
-            </thead>
-        <tbody>
-            <?php foreach($show_comment as $sc):?>
-                <tr>
-                    <td><?php echo $sc['id'] ?></td>
-                    <td><?php echo $sc['content'] ?></td>
-                    <td><?php echo $sc['id_user'] ?></td>
-                    <td><?php echo $sc['id_product'] ?></td>
-                    <td><?php echo $sc['date'] ?></td>
-                    <td><a href="index.php?act=delcomment&id=<?=$sc['id']?>"><button>Delete</button></a> </td>
-                </tr>
-                <?php endforeach?>
-        </tbody>
-    </table>
-    </div>
 
 
