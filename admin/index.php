@@ -10,7 +10,7 @@
      include "../dao/img.php";
      include "../dao/size.php";
      include "../dao/color.php";
-
+     include "../dao/thongke.php";
      include "../dao/pdo.php";
 
      
@@ -62,6 +62,23 @@
                 include "categories/list.php";
                 break;
             case 'products':
+                
+                if (isset($_POST['search'])){
+                    $kw = $_POST['keyword'];
+                    $id_cate = $_POST['id_cate'];
+                }else{
+                    $kw = '';
+                    $id_cate = 0;
+                }
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                }else{
+                    $page = '';
+                }
+                
+                $products_cate = loadallpd($id_cate,$kw,$page);
+                $count = countsp();
+                $pagenumber = ceil($count["countpd"]/9);
                 $category = loadallcate();
                 include "products/list.php";
                 break;
@@ -141,7 +158,7 @@
                 if (isset($_GET['id'])&&($_GET['id']>0)) {
                     $id = $_GET['id'];
                     delete_product($id);
-                    $products = loadallpd(0,'');
+                    $products = loadallpd(0,'','');
                 }
                 include "products/list.php";
                 break;
@@ -232,7 +249,8 @@
                 $category = loadallcate();
                 $color = color();
                 $size = size();
-                include "products/list.php";
+                header('location:index.php?act=products');
+                // include "products/list.php";
                 break;
             
 
@@ -377,6 +395,33 @@
                     $user = loadall_user();
                     $pd = loadallpd(0,'','');
                     include "comment/list.php";
+                break;
+            case 'bill':
+                $bill = loadlistbill();
+                include "cart/list.php";
+                break;
+            case 'edit_bill':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                }
+
+                $bill = loadonebill($id);
+                $bill_details = loadonecart($id);;
+                include "cart/editbill.php";
+                break;
+            case 'updatebill':
+                if (isset($_POST['capnhat'])) {
+                    $id = $_POST['id'];
+                    $ttdh = $_POST['ttdh'];
+                    updatebill($id,$ttdh);
+                    $thongbao="Cập nhật thành công";
+                }
+                $bill = loadlistbill();
+                include "cart/list.php";
+                break;
+            case 'thongke':
+                $thongke = pdtheocate();
+                include "thongke/list.php";
                 break;
         default:
             include "home.php";

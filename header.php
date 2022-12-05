@@ -66,7 +66,7 @@
                 <i class="fas fa-angle-up"></i>
             </button>
             <!-- Scroll-top-end-->
-    
+            
             <!-- header-area -->
             <header>
                 <div class="header-top-wrap">
@@ -108,24 +108,39 @@
                                         <li class="sign-in"><a href="index.php?act=login">ĐĂNG NHẬP</a></li>
                                     <?php }?>
                                         <li class="wish-list"><a href="#"><i class="flaticon-heart-shape-outline"></i></a></li>
-                                        <li class="header-shop-cart"><a href="#"><i class="flaticon-shopping-bag"></i><span>0</span></a>
+                                        <li class="header-shop-cart"><a href="#"><i class="flaticon-shopping-bag"></i>
+                                            <span>
+                                                <?php if (isset($_SESSION['addcart'])) {
+                                                    $a=count($_SESSION['addcart']);
+                                                    echo $a;
+                                                }?>
+                                            </span></a>
                                             <ul class="minicart">
+                                                <?php if (isset($_SESSION['addcart'])) { ?>
+                                                
+                                                <?php $tong = 0;$stt=1?>
+                                                <?php foreach($_SESSION['addcart'] as $cart):?>
+                                                
                                                 <li class="d-flex align-items-start">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="layout/img/product/cart_p01.jpg" alt=""></a>
+                                                        <a href="index.php?act=product_details&id=<?=$cart[0]?>"><img src="layout/img/product/<?=$cart[3]?>" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h4><a href="#">Exclusive Winter Jackets</a></h4>
+                                                        <h4><a href="index.php?act=product_details&id=<?=$cart[0]?>"><?=$cart[1]?></a></h4>
                                                         <div class="cart-price">
-                                                            <span class="new">$229.9</span>
-                                                            <span><del>$229.9</del></span>
+                                                            <span class="new"><?=$cart[2]?>.000 VNĐ</span>
+                                                            <span><del><?=$cart[8]?>.000 VNĐ</del></span>
                                                         </div>
                                                     </div>
-                                                    <div class="del-icon">
-                                                        <a href="#"><i class="far fa-trash-alt"></i></a>
-                                                    </div>
+                                                    <!-- <div class="del-icon">
+
+                                                        <a href=""><i class="far fa-trash-alt"></i></a>
+                                                        
+                                                    </div> -->
                                                 </li>
-                                                <li class="d-flex align-items-start">
+                                                <?php $tong += $cart[7];$stt++?>
+                                                <?php endforeach ?>
+                                                <!-- <li class="d-flex align-items-start">
                                                     <div class="cart-img">
                                                         <a href="#"><img src="layout/img/product/cart_p02.jpg" alt=""></a>
                                                     </div>
@@ -139,19 +154,22 @@
                                                     <div class="del-icon">
                                                         <a href="#"><i class="far fa-trash-alt"></i></a>
                                                     </div>
-                                                </li>
+                                                </li> -->
+                                                
                                                 <li>
                                                     <div class="total-price">
                                                         <span class="f-left">Total:</span>
-                                                        <span class="f-right">$239.9</span>
+                                                        <span class="f-right"><?=$tong?>.000 VNĐ</span>
                                                     </div>
                                                 </li>
+                                                <?php } ?>
                                                 <li>
                                                     <div class="checkout-link">
-                                                        <a href="#">Shopping Cart</a>
-                                                        <a class="black-color" href="#">Checkout</a>
+                                                        <a href="index.php?act=cart">Shopping Cart</a>
+                                                        <a class="black-color" href="index.php?act=cart">Checkout</a>
                                                     </div>
                                                 </li>
+                                                
                                             </ul>
                                         </li>
                                     </ul>
@@ -354,7 +372,12 @@
                                         <div class="header-action d-none d-md-block">
                                             <ul>
                                                 <li class="shipping-offer">Miễn phí vận chuyển cho đơn hàng từ <span>199.000VNĐ</span></li>
-                                                <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search-interface-symbol"></i></a></li>
+                                                <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal">
+                                                    
+                                                    
+                                                        <i class="flaticon-search-interface-symbol"></i>
+                                                    </a>
+                                                </li>
                                                 <li class="sidebar-toggle-btn"><a href="#" class="navSidebar-button"><img src="layout/img/icon/sidebar_toggle_icon.png" alt=""></a></li>
                                             </ul>
                                         </div>
@@ -422,9 +445,9 @@
                 <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form>
-                                <input type="text" placeholder="Search here...">
-                                <button><i class="flaticon-search"></i></button>
+                            <form action="index.php?act=productspage" method="post">
+                                <input type="text" name="keyword" placeholder="Search here...">
+                                <button type="submit" name="search"><i class="flaticon-search"></i></button>
                             </form>
                         </div>
                     </div>

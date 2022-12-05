@@ -15,7 +15,7 @@
     }
 </style>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
 </head>
 <body>
     <?php 
@@ -32,8 +32,10 @@
             <p>Địa chỉ: <?=$address?></p>
             <p>Số điện thoại: <?=$phone_number?></p>
             <p>Email: <?=$email?></p>
+            <p>Ngày đặt hàng: <?=$date?></p>
             <p>Phương thức thanh toán: <?=$method?></p>
             <p>Tổng tiền đã thanh toán: <?=$total?>.000 VND</p>
+            
         </div>
     </div>
     <div class="ctdh">
@@ -42,11 +44,12 @@
             <table class="table table-striped">
                 <thead>
                     <td>STT</td>
-                    <td>Product Name</td>
-                    <td>IMG</td>
-                    <td>Price</td>
-                    <td>Color</td>
+                    <td>Tên sản phẩm</td>
+                    <td>Ảnh</td>
+                    <td>Đơn giá</td>
+                    <td>Màu sắc</td>
                     <td>Size</td>
+                    <td>Số lượng</td>
 
                 </thead>
                 <?php
@@ -57,19 +60,20 @@
                             <td>'.$stt.'</td>
                             <td>'.$bd['product_name'].'</td>
                             <td><img src="layout/img/product/'.$bd['img'].'" alt="" width="50px"></td>
-                            <td>'.$bd['price'].'.00</td>
+                            <td>'.$bd['price'].'.000 VNĐ</td>
                             <td>'.selectcolor($bd['color'])['color_name'].'</td>
                             <td>'.selectsize($bd['size'])['size'].'</td>
+                            <td>'.$bd['amount'].'</td>
 
                             
 
                         </tr>';  
                         $stt+=1; 
-                        $tongtien += $cart[2];
+                        // $tongtien += $cart[7];
                     } 
                     echo '<tr>
                         <td>Tổng tiền:</td>
-                        <td>'.$tongtien.'</td>                
+                        <td>'.$total.'.000 VNĐ</td>                
                     </tr>';
                 ?>
         

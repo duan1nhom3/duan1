@@ -17,7 +17,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
+  <style>
+    ul.ptrang{
+      width: 20px;
+      display: flex;
+      flex-direction: row;
+      float: left;
+    }
+    ul.ptrang li{
+      padding: 5px 10px;
+      display: inline-block;
+      border:1px solid black;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    ul.ptrang li a{
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
@@ -59,12 +77,12 @@
       </li>
       <li><a class="app-menu__item" href="index.php?act=ds_user"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý khách hàng</span></a></li>
-      <li><a class="app-menu__item" href="index.php?act=products"><i class='app-menu__icon bx bx-task'></i><span
+      <li><a class="app-menu__item" href="index.php?act=bill"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
       <li><a class="app-menu__item" href="index.php?act=comment"><i class='app-menu__icon bx bx-run'></i><span
             class="app-menu__label">Quản lý bình luận
           </span></a></li>
-      <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
+      <li><a class="app-menu__item" href="index.php?act=thongke"><i
             class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label"> Thống kê</span></a>
       </li>
       

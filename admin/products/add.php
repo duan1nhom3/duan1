@@ -32,7 +32,7 @@
                 </span>
               </div>
               <div class="form-group col-md-3">
-                <label class="control-label">Giảm giá (%)</label>
+                <label class="control-label">Giảm giá </label>
                 <input name="discount" class="form-control" type="number" value="<?= isset($discount) ? $discount : '' ?>">
                 <span style="color:red">
                     <?=isset($error['discount']) ? $error['discount'] : '' ?>

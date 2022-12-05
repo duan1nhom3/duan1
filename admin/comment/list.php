@@ -21,9 +21,10 @@
           <div class="col-md-6">
             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
               <div class="info">
-                <h4>Tổng sản phẩm</h4>
-                <p><b>1850 sản phẩm</b></p>
-                <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
+                <h4>Tổng bình luận</h4>
+                <?php $countcomment = countcomment();?>
+                <p><b><?=$countcomment["countcomment"]?> bình luận</b></p>
+                <p class="info-tong">Tổng số bình luận được quản lý.</p>
               </div>
             </div>
           </div>

@@ -20,4 +20,5 @@ function deletecomment($id){
     $sql="delete from comment where id=$id";
     pdo_execute($sql);
 }
+
 ?>

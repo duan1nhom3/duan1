@@ -11,7 +11,9 @@
     include "dao/img.php";
     include "dao/size.php";
     include "dao/color.php";
+    include "dao/thongke.php";
     include "header.php";
+
     function convert_name($str) {
 		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
 		$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
@@ -26,6 +28,7 @@
 		$str = preg_replace("/(O|Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'o', $str);
 		$str = preg_replace("/(U|Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'u', $str);
 		$str = preg_replace("/(Y|Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'y', $str);
+        $str = preg_replace("/(W)/", 'w', $str);
 		$str = preg_replace("/(Đ)/", 'd', $str);
         $str = preg_replace("/(Q)/", 'q', $str);
         $str = preg_replace("/(G)/", 'g', $str);
@@ -283,9 +286,11 @@
                     $color = $_POST['color'];
                     $size = $_POST['size'];
                     $quantity = $_POST['quantity'];
+                    $discount = $_POST['discount'];
                     $subtotal = $price*$quantity;
                     $i = 0;
                     $kt=0;
+                    
                     if (isset($_SESSION['addcart'])&&(count($_SESSION['addcart'])>0)) {
                         foreach($_SESSION['addcart'] as $pd){
                             if ($pd[0] = $id && $pd[4] == $size && $pd[5] == $color) {
@@ -300,8 +305,9 @@
                             $i++;
                         }
                     }
+                    
                     if ($kt==0) {
-                        $spadd = [$id,$name,$price,$img,$size,$color,$quantity,$subtotal];
+                        $spadd = [$id,$name,$price,$img,$size,$color,$quantity,$subtotal,$discount];
                         array_push($_SESSION['addcart'],$spadd);
                     }
                     
@@ -326,9 +332,44 @@
             case 'thanhtoan':
                 include "site/checkout.php";
                 break;
+            case 'add_bill':
+                if (isset($_POST['addbill'])) {
+                    $id = $_POST['id'];
+                    $hoten = $_POST['hoten'];
+                    $diachi = $_POST['diachi'];
+                    $sdt = $_POST['sdt'];
+                    $email = $_POST['email'];
+                    $pttt = $_POST['pttt'];
+                    $total = $_POST['tongtien'];
+                    $status = "Đang xử lí";
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $time = date('d/m/Y - H:i:s');
+                    
+                    $idbill=insertbill($id,$hoten,$diachi,$sdt,$email,$pttt,$total,$status,$time);
+                    
+                    foreach($_SESSION['addcart'] as $cart){
+                        insertbill_details($idbill,$cart[1],$cart[2],$cart[3],$cart[4],$cart[5],$cart[6],$total);
+                    }
+                    $_SESSION['addcart'] = [];
+                }
+                $bill = loadonebill($idbill);
+                $bill_details = loadonecart($idbill);
+                include "site/bill.php";
+                break;
+            case 'mybill':
+                $id = $_SESSION['user']['id'];
+                $bill = loadallbill($id);
+                    include "site/mybill.php";
+                break;
+            case 'bill_details':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                }
 
-
-
+                $bill = loadonebill($id);
+                $bill_details = loadonecart($id);;
+                include "site/billdetails.php";
+                break;
 
             default:
                 include "site/home.php";

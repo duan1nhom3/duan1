@@ -6,27 +6,27 @@
                     <div class="row no-gutters slider-two-active">
                         <div class="col-lg-4">
                             <div class="slider-two-item">
-                                <div class="thumb"><img src="layout/img/slider/s_slider_img01.jpg" alt=""></div>
+                                <div class="thumb"><img src="layout/img/product/dam_nhung_den_aphoi2.jpg" alt=""></div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="slider-two-item">
-                                <div class="thumb"><img src="layout/img/slider/s_slider_img02.jpg" alt=""></div>
+                                <div class="thumb"><img src="layout/img/product/dam_to_xoe_hoatietbao1.jpg" alt=""></div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="slider-two-item">
-                                <div class="thumb"><img src="layout/img/slider/s_slider_img03.jpg" alt=""></div>
+                                <div class="thumb"><img src="layout/img/product/dam_trang_xoe_co_thuyen2.jpg" alt=""></div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="slider-two-item">
-                                <div class="thumb"><img src="layout/img/slider/s_slider_img04.jpg" alt=""></div>
+                                <div class="thumb"><img src="layout/img/product/dam_xoe_nhung_xanh1.jpg" alt=""></div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="slider-two-item">
-                                <div class="thumb"><img src="layout/img/slider/s_slider_img05.jpg" alt=""></div>
+                                <div class="thumb"><img src="layout/img/product/dam_xoe_trang_sat_nach1.jpg" alt=""></div>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@
                             <div class="col-xl-7 col-lg-9">
                                 <div class="cat-section-title text-center">
                                     <div class="icon"><img src="layout/img/icon/logo_icon.png" alt=""></div>
-                                    <span class="sub-title">CHOOSE A TYPE</span>
-                                    <h2 class="title">Online shopping defined by fashion <br> popular aesthetic expression at a particular place
+                                    <span class="sub-title">Chọn một loại</span>
+                                    <h2 class="title">Mua sắm trực tuyến <br> dễ dàng mua sắm ở mọi nơi
                                     </h2>
                                 </div>
                             </div>
@@ -97,51 +97,51 @@
                     <div class="row justify-content-center">
                         <div class="col">
                             <div class="shop-cat-item">
-                                <a href="shop-sidebar.html">
+                                <a href="index.php?act=productspage&id=4">
                                     <div class="icon">
                                         <img src="layout/img/icon/cat_icon01.png" alt="">
                                     </div>
-                                    <p>Women Shoe <span>( 9 Items )</span></p>
+                                    <p>Giày <span>( 8 sản phẩm )</span></p>
                                 </a>
                             </div>
                         </div>
                         <div class="col">
                             <div class="shop-cat-item">
-                                <a href="shop-sidebar.html">
+                                <a href="index.php?act=productspage&id=1">
                                     <div class="icon">
                                         <img src="layout/img/icon/cat_icon02.png" alt="">
                                     </div>
-                                    <p>Winter Suit <span>( 8 Items )</span></p>
+                                    <p>Áo <span>( 5 Sản phẩm )</span></p>
                                 </a>
                             </div>
                         </div>
                         <div class="col">
                             <div class="shop-cat-item">
-                                <a href="shop-sidebar.html">
+                                <a href="index.php?act=productspage&id=2">
                                     <div class="icon">
                                         <img src="layout/img/icon/cat_icon03.png" alt="">
                                     </div>
-                                    <p>Hot Pants <span>( 12 Items )</span></p>
+                                    <p>Quần <span>( 4 Sản phẩm )</span></p>
                                 </a>
                             </div>
                         </div>
                         <div class="col">
                             <div class="shop-cat-item">
-                                <a href="shop-sidebar.html">
+                                <a href="index.php?act=productspage&id=5">
                                     <div class="icon">
                                         <img src="layout/img/icon/cat_icon04.png" alt="">
                                     </div>
-                                    <p>Travel Bags <span>( 10 Items )</span></p>
+                                    <p>Túi <span>( 4 sản phẩm )</span></p>
                                 </a>
                             </div>
                         </div>
                         <div class="col">
                             <div class="shop-cat-item">
-                                <a href="shop-sidebar.html">
+                                <a href="index.php?act=productspage&id=3">
                                     <div class="icon">
                                         <img src="layout/img/icon/cat_icon05.png" alt="">
                                     </div>
-                                    <p>Bikini Suit <span>( 19 Items )</span></p>
+                                    <p>Váy <span>( 8 Sản phẩm )</span></p>
                                 </a>
                             </div>
                         </div>
@@ -220,8 +220,8 @@
                                                         </a>
                                                         <div class="product-overlay-action">
                                                             <ul>
-                                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                                                <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
+                                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-heart"></i></a></li>
+                                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-eye"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -234,7 +234,8 @@
                                                             <i class="far fa-star"></i>
                                                         </div>
                                                         <h5><a href="index.php?act=product_details&id=<?=$pd['id']?>"><?=$pd['product_name']?></a></h5>
-                                                        <p class="price"><?=$pd['price']?> VNĐ</p>
+                                                        <span><del><?=$pd['discount']?>.000 VNĐ</del></span>
+                                                        <p class="price"><?=$pd['price']?>.000 VNĐ</p>
                                                         <div class="features-product-bottom">
                                                             <ul>
                                                                 <li class="color-option">
@@ -242,11 +243,11 @@
                                                                     <span class="cyan"></span>
                                                                     <span class="orange"></span>
                                                                 </li>
-                                                                <li class="limited-time"><a href="#">Limited-Time Offer!</a></li>
+                                                                <li class="limited-time"><a href="#">Thời gian ưu đãi có hạn!</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    <div class="features-product-cart"><a href="cart.html">add to cart</a></div>
+                                                    
                                                 </div>
                                             </div>
                                         <?php endforeach?>
@@ -1602,16 +1603,16 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-4 col-lg-6">
                             <div class="section-title title-style-two text-center mb-45">
-                                <h3 class="title">New Arrival Collection</h3>
+                                <h3 class="title">Những sản phẩm tốt nhất</h3>
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="new-arrival-nav mb-35">
-                                <button class="active" data-filter=".cat-one">Best Sellers</button>
-                                <button class="" data-filter=".cat-two">New Products</button>
-                                <button class="" data-filter=".cat-three">Sales Products</button>
+                                <button class="active" data-filter=".cat-one">Bán chạy nhất</button>
+                                <button class="" data-filter=".cat-two">Sản phẩm mới ra mắt</button>
+                                <button class="" data-filter=".cat-three">Sản phẩm đang giảm giá</button>
                             </div>
                         </div>
                     </div>
@@ -1623,14 +1624,15 @@
                                         <a href="index.php?act=product_details&id=<?=$pd['id']?>"><img src="layout/img/product/<?=$pd['img']?>" alt="" height="300px"></a>
                                         <div class="product-overlay-action">
                                             <ul>
-                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                                <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
+                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-heart"></i></a></li>
+                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="content">
                                         <h5><a href="index.php?act=product_details&id=<?=$pd['id']?>"><?=$pd['product_name']?></a></h5>
-                                        <span class="price"><?=$pd['price']?> VNĐ</span>
+                                        <span><del><?=$pd['discount']?>.000 VNĐ</del></span>
+                                        <span class="price"><?=$pd['price']?>.000 VNĐ</span>
                                     </div>
                                 </div>
                             </div>
@@ -1642,14 +1644,15 @@
                                         <a href="index.php?act=product_details&id=<?=$pd['id']?>"><img src="layout/img/product/<?=$pd['img']?>" alt="" height="300px"></a>
                                         <div class="product-overlay-action">
                                             <ul>
-                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                                <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
+                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-heart"></i></a></li>
+                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="content">
                                         <h5><a href="index.php?act=product_details&id=<?=$pd['id']?>"><?=$pd['product_name']?></a></h5>
-                                        <span class="price"><?=$pd['price']?> VNĐ</span>
+                                        <span><del><?=$pd['discount']?>.000 VNĐ</del></span>
+                                        <span class="price"><?=$pd['price']?>.000 VNĐ</span>
                                     </div>
                                 </div>
                             </div>
@@ -1661,14 +1664,16 @@
                                         <a href="index.php?act=product_details&id=<?=$pd['id']?>"><img src="layout/img/product/<?=$pd['img']?>" alt="" height="300px"></a>
                                         <div class="product-overlay-action">
                                             <ul>
-                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                                <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
+                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-heart"></i></a></li>
+                                                <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="content">
                                         <h5><a href="index.php?act=product_details&id=<?=$pd['id']?>"><?=$pd['product_name']?></a></h5>
-                                        <span class="price"><?=$pd['price']?> VNĐ</span>
+                                        <span><del><?=$pd['discount']?>.000 VNĐ</del></span>
+                                        <span class="price"><?=$pd['price']?>.000 VNĐ</span>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -1814,12 +1819,12 @@
                         <div class="col-12">
                             <div class="newsletter-bg" data-background="layout/img/bg/newsletter_bg.jpg">
                                 <div class="newsletter-title mb-65">
-                                    <h2 class="title">NEWSLETTER!</h2>
-                                    <h6 class="sub-title">NEWSLETTER AND GET DISCOUNT 25% OFF</h6>
+                                    <h2 class="title">Để lại thông tin!</h2>
+                                    <h6 class="sub-title">Chúng tôi sẽ liên hệ với bạn ngay</h6>
                                 </div>
                                 <form action="#" class="newsletter-form">
-                                    <input type="email" placeholder="Your email address...">
-                                    <button><span>Subscribe</span> <i class="far fa-arrow-alt-circle-right"></i></button>
+                                    <input type="email" placeholder="Địa chỉ email của bạn...">
+                                    <button><span>Gửi</span> <i class="far fa-arrow-alt-circle-right"></i></button>
                                 </form>
                             </div>
                         </div>
