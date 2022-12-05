@@ -160,7 +160,7 @@ padding-left: 20px;
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 .loginn{
-    height: 720px;
+    height: 700px;
 }
 .login{
   font-family: 'Source Sans Pro', sans-serif;
@@ -168,7 +168,13 @@ padding-left: 20px;
   padding: 0;
   margin: 0;
 }
+.signup{
+  height: 1000px;
+}
+.signup .containerr{
+  height: 750px;
 
+}
 #particles-js {
   position: absolute;
   width: 100%;
@@ -186,7 +192,7 @@ padding-left: 20px;
   border-radius: 9px;
   border-top: 10px solid #79a6fe;
   border-bottom: 10px solid #8BD17C;
-  width: 400px;
+  width: 500px;
   height: 500px;
   box-shadow: 1px 1px 108.8px 19.2px rgb(116, 123, 145);
 }
@@ -208,7 +214,7 @@ padding-left: 20px;
 
 .bbox input[type = "text"],.bbox input[type = "password"] {
   display: block;
-  margin: 20px auto;
+  margin: 10px auto;
   background: #ededf0;
   border: 0;
   border-radius: 5px;
@@ -253,7 +259,7 @@ padding-left: 20px;
   font-size: 16px;
   position: absolute;
   top: 79%;
-  left: 8%;
+  left: 15%;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -273,7 +279,7 @@ padding-left: 20px;
 .forgetpass {
   position: relative;
   float: right;
-  right: 28px;
+  right: 90px;
 }
 
 .dnthave{
@@ -282,16 +288,7 @@ padding-left: 20px;
     left: 24%;
 }
 
-[type=checkbox]:checked + span:before {/* <-- style its checked state */
-    font-family: FontAwesome;
-    font-size: 16px;
-    content: "\f00c";
-    position: absolute;
-    top: -4px;
-    color: #896cec;
-    left: -1px;
-    width: 13px;
-}
+
 
 .typcn {
   position: absolute;
@@ -325,4 +322,46 @@ padding-left: 20px;
 .thongbao{
     font-size: 15px;
     color: red;
+}
+
+.infouser{
+  padding: 50px 200px;
+}
+.info{
+  display: flex;
+}
+.anhdaidien{
+  width: 400px;
+  height: 600px;
+  margin-right: 100px;
+}
+.anhdaidien img{
+  width: 100%;
+}
+.tt div{
+  display: flex; 
+  padding: 20px 0;
+  
+}
+.tt label{
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+}
+.tt p{
+  font-size: 20px;
+  padding: 0 10px;
+  font-weight: bold;
+}
+.capnhattt .btn{
+  background-color: #070707;
+  color: white;
+}
+.capnhattt .btn:hover{
+  background-color: #ff3333;
+  color: #000000;
+}
+.updateinfo{
+  text-align: center;
+  padding: 40px 0 ;
 }

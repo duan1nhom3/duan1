@@ -5,6 +5,7 @@ function loadallcate(){
     $lishcate = pdo_query($sql);
     return $lishcate;
 }
+
 function categories_sellectall(){
     $sql = "select * from categories order by id DESC";
     return pdo_query($sql);
@@ -26,4 +27,5 @@ function categories_sellectall(){
         $sql="update categories set cate_name='".$ten_loai."' where id=".$id;
         pdo_execute($sql);
     }
+
 ?>
