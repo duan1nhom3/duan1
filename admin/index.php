@@ -1,6 +1,6 @@
 <?php
 
-     include "header.php";
+    //  include "header.php";
      include "../dao/bill.php";
      include "../dao/categories.php";
      include "../dao/products.php";
@@ -23,16 +23,43 @@
                 include "home.php";
                 break;
             case 'categories':
-                include "home.php";
+                $listdanhmuc=categories_sellectall();
+                include "categories/list.php";
                 break;
             case 'addcategories':
-                include "home.php";
+                if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+                    $ten_loai = $_POST['ten_loai'];
+                    categories_insert($ten_loai);
+                    $thongbao = "Thêm thành công";
+                }
+                include "categories/add.php";
                 break;
             case 'deletecategories':
-                include "home.php";
+                
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    $id = $_GET['id'];
+                    categories_delete($id);
+                }
+                $listdanhmuc=categories_sellectall();
+                include "categories/list.php";
                 break;
             case 'editcategories':
-                include "home.php";
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    $id = $_GET['id'];
+                    $danhmuc=load_one_categories($id);
+                }
+                $listdanhmuc=categories_sellectall();
+                include "categories/update.php";
+                break;
+            case 'updatedanhmuc' :
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $ten_loai = $_POST['ten_loai'];
+                    $id = $_POST['id'];
+                    categories_update($ten_loai,$id);
+                    $thongbao = "Cập nhật thành công";
+                }
+                $listdanhmuc=categories_sellectall();
+                include "categories/list.php";
                 break;
             case 'products':
                 
@@ -207,8 +234,7 @@
                 $size = size();
                 include "products/list.php";
                 break;
-            default:
-            include "home.php";
+            
 
 // controller User
             case 'add_user':
