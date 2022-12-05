@@ -21,7 +21,8 @@
             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
               <div class="info">
                 <h4>Tổng sản phẩm</h4>
-                <p><b>1850 sản phẩm</b></p>
+                <?php $countpd = countsp();?>
+                <p><b><?=$countpd["countpd"]?> sản phẩm</b></p>
                 <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
               </div>
             </div>
@@ -30,7 +31,10 @@
            <div class="col-md-12">
             <div class="tile">
                 <h3 class="tile-title">Danh sách sản phẩm</h3>
+                    
               <div>
+                
+                
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -45,7 +49,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($products as $pd): ?>
+                    <?php foreach($products_cate as $pd): ?>
                         <tr>
                             <td class="text-center"><?=$pd['id']?></td>
                             <td class="text-center"><?=$pd['product_name']?></td>
@@ -75,17 +79,43 @@
                                 Tạo mới sản phẩm</a>
                         </div>
                             
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                                class="fas fa-trash-alt"></i> Xóa tất cả </a>
-                        </div>
+                      
                     </div>
                     <div class="text-center text-success bg-success" style="font-size: 40px;padding:20px;">
                       <?= isset($thongbao) ? $thongbao :''?>
                     </div>
+                    <div style="margin: 20px 0;display:flex;width: 500px;justify-content: space-between;">
+                        <form  action="index.php?act=products" method="post">
+                          <div>
+                            <select style="padding: 10px 10px" name="id_cate">
+                                <option value="0" selected>Tất cả</option>
+                                <?php foreach ($category as $cate) : ?>
+                                    <option value="<?= $cate['id'] ?>" > <?= $cate['cate_name'] ?> </option>
+                                <?php endforeach ?>
+                            </select>
+                            
+                          </div>
+                            <div>
+                              <input class="form-control" type="text" name="keyword" placeholder="Tìm kiếm sản phẩm...">
+                            </div> 
+                          <div>
+                            <button style="padding: 10px 10px" class="btn btn-search" type="submit" name="search">Tìm kiếm</i></button>
+                          </div>
+                        </form>
+                    </div>
                   </tbody>
                 </table>
               </div>
+                  <div style="padding: 50px 20px 20px 20px;">
+                      <p>Trang:</p>
+                      <ul class="ptrang">
+                        <?php for ($i=1; $i <= $pagenumber; $i++) { ?>
+                          <li <?php if ($i == $page) {echo 'style="background-color:red"';}?> >
+                            <a href="index.php?act=products&page=<?=$i?>"> <?=$i?> </a>
+                          </li>
+                        <?php }?>
+                      </ul>  
+                  </div>
               <!-- / div trống-->
             </div>
            </div>

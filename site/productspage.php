@@ -75,7 +75,9 @@
                             <div class="pagination-wrap">
                                 <ul>
                                     <?php for ($i=1; $i <= $pagenumber; $i++) { ?>
-                                        <li ><a href="index.php?act=productspage&page=<?=$i?>"> <?=$i?> </a></li>
+                                        <li <?php if ($i == $page) {
+                                            echo 'style="background-color:red"' ;
+                                        }?> ><a href="index.php?act=productspage&page=<?=$i?>"> <?=$i?> </a></li>
                                     <?php }?>
                                      <!-- <li class="prev"><a href="#">Prev</a></li>
                                     <li class="active"><a href="index.php?act=productspage">1</a></li>
@@ -113,9 +115,11 @@
                                     <h4 class="widget-title">Top Items</h4>
                                     <div class="sidebar-product-list">
                                         <ul>
+                                            <?php $threepd = loadthreepdnew();?>
+                                            <?php foreach($threepd as $pro):?>
                                             <li>
                                                 <div class="sidebar-product-thumb">
-                                                    <a href="#"><img src="layout/img/product/sidebar_product01.jpg" alt=""></a>
+                                                    <a href="index.php?act=product_details&id=<?=$pro['id']?>"><img src="layout/img/product/<?=$pro['img']?>" alt="" width="70px"></a>
                                                 </div>
                                                 <div class="sidebar-product-content">
                                                     <div class="rating">
@@ -125,42 +129,12 @@
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                     </div>
-                                                    <h5><a href="#">Woman T-shirt</a></h5>
-                                                    <span>$ 39.00</span>
+                                                    <h5><a href="index.php?act=product_details&id=<?=$pro['id']?>"><?=$pro['product_name']?></a></h5>
+                                                    <span><?=$pro['price']?>.000 VNĐ</span>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="sidebar-product-thumb">
-                                                    <a href="#"><img src="layout/img/product/sidebar_product02.jpg" alt=""></a>
-                                                </div>
-                                                <div class="sidebar-product-content">
-                                                    <div class="rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
-                                                    <h5><a href="#">Slim Fit Cotton</a></h5>
-                                                    <span>$ 39.00</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="sidebar-product-thumb">
-                                                    <a href="#"><img src="layout/img/product/sidebar_product03.jpg" alt=""></a>
-                                                </div>
-                                                <div class="sidebar-product-content">
-                                                    <div class="rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
-                                                    <h5><a href="#">Fashion T-shirt</a></h5>
-                                                    <span>$ 39.00</span>
-                                                </div>
-                                            </li>
+                                            <?php endforeach ?>
+                                            
                                         </ul>
                                     </div>
                                 </div>

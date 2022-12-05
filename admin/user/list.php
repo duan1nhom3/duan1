@@ -20,9 +20,10 @@
             <div class="col-md-6">
                 <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
                     <div class="info">
-                        <h4>Tổng sản phẩm</h4>
-                        <p><b>1850 sản phẩm</b></p>
-                        <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
+                        <h4>Tổng khách hàng</h4>
+                        <?php $countuser = countuser();?>
+                        <p><b><?=$countuser["countuser"]?> khách hàng</b></p>
+                        <p class="info-tong">Tổng số khách hàng được quản lý.</p>
                     </div>
                 </div>
             </div>
@@ -38,14 +39,14 @@
                             <thead>
                                 <tr>
                                     <td class="text-center">ID</td>
-                                    <td class="text-center">User Name</td>
+                                    <td class="text-center">Họ tên</td>
                                     <td class="text-center">Email</td>
-                                    <td class="text-center">IMG</td>
-                                    <td class="text-center">Password</td>
-                                    <td class="text-center">Address</td>
-                                    <td class="text-center">Phone</td>
-                                    <td class="text-center">Role</td>
-                                    <td class="text-center">Action</td>
+                                    <td class="text-center">Ảnh</td>
+                                    <td class="text-center">Mật khẩu</td>
+                                    <td class="text-center">Địa chỉ</td>
+                                    <td class="text-center">Số điện thoại</td>
+                                    <td class="text-center">Vai trò</td>
+                                    <td class="text-center">Thao tác</td>
 
                                 </tr>
                             </thead>

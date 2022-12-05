@@ -62,8 +62,8 @@
                                                         </form>
                                                     </div>
                                                 </td>
-                                                <td class="product-size"><span><?=$cart[4]?></span></td>
-                                                <td class="product-color"><span><?=$cart[5]?></span></td>
+                                                <td class="product-size"><span><?= selectsize($cart[4])['size']?></span></td>
+                                                <td class="product-color"><span><?= selectcolor($cart[5])['color_name']?></span></td>
                                                 <td class="product-subtotal"><span><?=$cart[7]?>.000 VNĐ</span></td>
                                                 <td class="product-delete"><a href="index.php?act=delcart&id=<?=$stt?>"><i class="flaticon-trash"></i></a></td>
                                             </tr>

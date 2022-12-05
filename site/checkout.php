@@ -96,12 +96,13 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3"></h4>
-      <form action="indexdemo.php?act=addbill" method="post">
+      <form action="index.php?act=add_bill" method="post">
         <div class="row">
           <div class="col-md-6 mb-3">
             <?php if (isset($_SESSION['user'])) {
               extract($_SESSION['user']);
             } ?>
+            <input type="hidden" name="id" value="<?=$id?>">
             <label for="firstName">Họ và Tên</label>
             <input type="text" class="form-control" name="hoten" placeholder="Họ tên" style="width: 835px;" value="<?= isset($fullname) ? $fullname : '' ?>" required>
             <div class="invalid-feedback">
@@ -136,12 +137,12 @@
 
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
-            <input id="credit" name="pttt" type="radio" class="custom-control-input" checked required>
-            <label class="custom-control-label" for="credit" value="Thanh toán trực tiếp" onclick="offQR()">Thanh toán trực tiếp</label>
+            <input id="credit" name="pttt" type="radio" class="custom-control-input" value="Thanh toán trực tiếp" checked required>
+            <label class="custom-control-label" for="credit"  onclick="offQR()">Thanh toán trực tiếp</label>
           </div>
           
           <div class="custom-control custom-radio">
-            <input id="paypal" name="pttt" type="radio" class="custom-control-input" required value="Thanh toán Chuyển khoản ngân hàng">
+            <input id="paypal" name="pttt" type="radio" class="custom-control-input" value="Thanh toán Chuyển khoản ngân hàng" required >
             <label class="custom-control-label" for="paypal" onclick="showQR()">Thanh toán Online (QR CODE)</label>
           </div>
         </div>
@@ -179,7 +180,7 @@
     </div>
         <hr class="mb-4">
         
-        <a href="indexdemo.php?act=addbill"><button class="btn btn-primary btn-lg btn-block" type="submit" name="addbill">Xác nhận thanh toán</button></a>
+        <a href="index.php?act=add_bill"><button class="btn btn-primary btn-lg btn-block" type="submit" name="addbill">Xác nhận thanh toán</button></a>
       </form>
       <a href="index.php?act=cart"><button class="btn btn-primary btn-lg btn-block mt-5" type="submit">Quay lại giỏ hàng</button></a>
     </div>

@@ -125,6 +125,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="style-name">Style Name : TN-WI56-OMTJ-CqTKJ-09#</p>
+                    <span><del>Giá gốc: <?=$discount?>.000 VNĐ</del></span>
                     <div class="price">Giá : <?=$price?>.000 VNĐ</div>
                     <form action="index.php?act=addcart" method="post">
                         <div class="product-details-info">
@@ -136,7 +137,7 @@
                                         <?php foreach($pdsize as $pd){
                                             $size = selectsize($pd['id_size']);
                                             
-                                            echo '<li class="text-center"><input type="radio" name="size" value="'.$size['size'].'" checked><a href="#">'.$size['size'].'</a></li>';
+                                            echo '<li class="text-center"><input type="radio" name="size" value="'.$size['id'].'" checked><a href="#">'.$size['size'].'</a></li>';
                                             
                                         }?> 
                                         <!-- <li class="text-center"><input type="radio" name="size" value="S"><a href="#">S</a></li>
@@ -160,7 +161,7 @@
                                         <?php foreach($pdcolor as $pd){
                                             $color_name = selectcolor($pd['id_color']);
                                             // echo '<li class="'.$color_name['color_name'].'"></li>';
-                                            echo '<div class="'.$color_name['color_name'].'"><input name="color"  type="radio" id="c'.$stt.'" value="'.$color_name['color_name'].'" checked><label for="c'.$stt.'"><span></span></label></div>';
+                                            echo '<div class="'.$color_name['color_name'].'"><input name="color"  type="radio" id="c'.$stt.'" value="'.$color_name['id'].'" checked><label for="c'.$stt.'"><span></span></label></div>';
                                             $stt+=1;
                                         }?> 
                                     </ul>
@@ -181,18 +182,16 @@
                               <input type="hidden" name="name" value="<?=$product_name?>">
                               <input type="hidden" name="img" value="<?=$img?>">
                               <input type="hidden" name="price" value="<?=$price?>">
+                              <input type="hidden" name="discount" value="<?=$discount?>">
+                        
                             <a href="index.php?act=addcart" ><button class="btn"  type="submit" name="addtocart">Thêm vào giỏ hàng</button></a>
                             
                         </div>
                     </form>
                     <div class="product-details-share">
                         <ul>
-                            <li>Share :</li>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li>Mô tả :</li>
+                            <li><?=$description?></li>
                         </ul>
                     </div>
                 </div>
@@ -302,9 +301,15 @@
                             <form action="index.php?act=product_details&id=<?=$idpd?>" method="post" class="comment-form review-form">
                                 <span>Nhận xét của bạn *</span>
                                 <textarea name="message" id="comment-message" placeholder="Đánh giá sản phẩm"></textarea>
-                                <input type="hidden" name="id_user" value="<?=$_SESSION['user']['id']?>">
-                                <input type="hidden" name="id_pd" value="<?=$idpd?>">
-                                <button type="submit" name="comment" class="btn">Gửi </button>
+                                <?php if (isset($_SESSION['user'])) { ?>
+                                    <input type="hidden" name="id_user" value="<?=$_SESSION['user']['id']?>">
+                                    <input type="hidden" name="id_pd" value="<?=$idpd?>">
+                                    <button type="submit" name="comment" class="btn">Gửi </button>
+                                    
+                                <?php }else{ ?>
+                                    <span style="color: red;font-size:20px">Bạn cần đăng nhập để gửi đánh giá</span>
+                                
+                                <?php } ?>
                             </form>
                         </div>
                     </div>

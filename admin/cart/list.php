@@ -1,50 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Tên Khách Hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Method</th>
-                    <th>price</th>
-                    <th>img</th>
-                    <th>size</th>
-                    <th>color</th>
-                    <th>amount</th>
-                    <th>total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($show_bill as $sb) :?>
-                <tr align="center">
-                    <td><?php echo $sb['fullname']?></td>
-                    <td><?php echo $sb['address']?></td>
-                    <td><?php echo $sb['email']?></td>
-                    <td><?php echo $sb['phone_number']?></td>
-                    <td><?php echo $sb['product_name']?></td>
-                    <td><?php echo $sb['method']?></td>
-                    <td><?php echo $sb['price']?></td>
-                    <td><img width="50%" src="layout/img/product/<?php echo $sb['img']?>" alt=""></td>
-                    <td><?php echo $sb['size']?></td>
-                    <td><?php echo $sb['color']?></td>
-                    <td><?php echo $sb['amount']?></td>
-                    <td><?php echo $sb['total']?></td>
-                </tr>
-                
-                <?php endforeach?>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+
+<main class="app-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="app-title">
+                    <ul class="app-breadcrumb breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><b>Bảng điều khiển</b></a></li>
+                    </ul>
+                    <div id="clock"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--Left-->
+            <div class="col-md-12 col-lg-6">
+                <div class="row">
+                    
+                </div>
+            </div>
+            <!-- col-6 -->
+            <div class="col-md-6">
+                <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
+                    <div class="info">
+                        <h4>Tổng đơn hàng</h4>
+                        <?php $countbill = countbill();?>
+                        <p><b><?=$countbill["countbill"]?> đơn hàng</b></p>
+                        <p class="info-tong">Tổng số đơn hàng được quản lý.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="tile">
+                    <h3 class="tile-title">Danh sách đơn hàng</h3>
+                    <div class="text-center text-success bg-success" style="font-size: 40px;padding:20px;">
+                      <?= isset($thongbao) ? $thongbao :''?>
+                    </div>
+                    <div>
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Mã Đơn hàng</th>
+                                <th class="text-center">Người mua</th>
+                                <th class="text-center">Phương thức thanh toán</th>
+                                <th class="text-center">Tổng giá trị đơn hàng</th>
+                                <th class="text-center">Ngày đặt hàng</th>
+                                <th class="text-center">Trạng thái</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $total = 0; ?>
+                            <?php foreach ($bill as $bill) : ?>
+                                <tr>
+                                    
+                                    <td class="text-center">DH-<?= $bill['id'] ?></a></td>
+                                    <td class="text-center">
+                                        <?= $bill['fullname'] ?>
+                                    </td>
+                                    <td class="text-center"><?= $bill['method'] ?></td>
+                                    <td class="text-center">
+                                        <?= $bill['total'] ?>.000 VNĐ
+                                    </td>
+                                    <td class="text-center"><?= $bill['date'] ?></span></td>
+                                    <td><?= $bill['status'] ?></td>
+                                    <td class="text-center"><a href="index.php?act=edit_bill&id=<?=$bill['id']?>"><button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button></a></td>
+                                </tr>
+                            
+                            <?php endforeach ?>
+
+
+                        </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+                <!-- / div trống-->
+            </div>
+        </div>
+
+        
+
+
+        <div class="text-center" style="font-size: 13px">
+            <p><b>Copyright
+                    <script type="text/javascript">
+                        document.write(new Date().getFullYear());
+                    </script> Phần mềm quản lý bán hàng | Dev By Group 3
+                </b></p>
+        </div>
+    </main>

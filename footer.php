@@ -14,45 +14,45 @@
                     <div class="row">
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget mb-50">
-                                <h4 class="fw-title">COMPANY</h4>
+                                <h4 class="fw-title">Công ty</h4>
                                 <div class="fw-link">
                                     <ul>
-                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="about-us.html">Về chúng tôi</a></li>
                                         <li><a href="shop.html">Store Locations</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.html">Liên hệ</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget mb-50">
-                                <h4 class="fw-title">STORE</h4>
+                                <h4 class="fw-title">Cửa hàng</h4>
                                 <div class="fw-link">
                                     <ul>
-                                        <li><a href="#">Order Tracking</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Theo dõi đơn hàng</a></li>
+                                        <li><a href="#">Chính sách bảo mật</a></li>
+                                        <li><a href="#">Điều khoản và điều kiện</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget mb-50">
-                                <h4 class="fw-title">Category</h4>
+                                <h4 class="fw-title">Danh mục</h4>
                                 <div class="fw-link">
                                     <ul>
-                                        <li><a href="shop-sidebar.html">Women</a></li>
-                                        <li><a href="shop-sidebar.html">Men</a></li>
-                                        <li><a href="shop-sidebar.html">Baby</a></li>
+                                        <li><a href="index.php?act=productspage&id=1">Áo</a></li>
+                                        <li><a href="index.php?act=productspage&id=3">Váy</a></li>
+                                        <li><a href="index.php?act=productspage&id=4">Giày</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget mb-50">
-                                <h4 class="fw-title">FOLLOW US</h4>
+                                <h4 class="fw-title">THEO DÕI CHÚNG TÔI</h4>
                                 <div class="footer-text">
-                                    <p>Get Free Shipping on all your orders!</p>
+                                    <p>Nhận giao hàng miên phí cho tất cả đơn đặt hàng của các bạn !</p>
                                     <div class="footer-social">
                                         <ul>
                                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

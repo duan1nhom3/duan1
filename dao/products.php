@@ -19,10 +19,7 @@ function loadallpd($id_cate,$kw,$page){
    
     return $listpd;
 }
-function countsp(){
-    $sql = "select count(id) as countpd from product";
-    return pdo_query_one($sql);
-}
+
 function loadpdbestsell(){
     $sql = "select*from product limit 0,10";
     $listpd = pdo_query($sql);
@@ -30,6 +27,11 @@ function loadpdbestsell(){
 }
 function loadpdnew(){
     $sql = "select*from product order by id desc limit 0,8";
+    $listpd = pdo_query($sql);
+    return $listpd;
+}
+function loadthreepdnew(){
+    $sql = "select*from product order by id desc limit 0,3";
     $listpd = pdo_query($sql);
     return $listpd;
 }
