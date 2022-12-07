@@ -1,6 +1,6 @@
 <?php
 
-    //  include "header.php";
+     include "header.php";
      include "../dao/bill.php";
      include "../dao/categories.php";
      include "../dao/products.php";
@@ -13,7 +13,10 @@
      include "../dao/thongke.php";
      include "../dao/pdo.php";
 
-     
+     $thongke = pdtheocate();
+     $spbanchay = loadsixpdbestsell();
+     $categories = loadallcate();
+     $listbill = loadtenlistbill();
     $products = loadallpd(0,'','');
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
@@ -27,10 +30,16 @@
                 include "categories/list.php";
                 break;
             case 'addcategories':
-                if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-                    $ten_loai = $_POST['ten_loai'];
-                    categories_insert($ten_loai);
-                    $thongbao = "Thêm thành công";
+                if(isset($_POST['submit'])&&($_POST['submit'])){
+                    $cate_name = $_POST['cate_name'];
+                    $error = [];
+                    if ($cate_name == '') {
+                        $error['pdname']= "Tên danh mục không được để trống";
+                    }
+                    if (!$error) {
+                        categories_insert($cate_name);
+                        $thongbao = "Thêm thành công";
+                    }    
                 }
                 include "categories/add.php";
                 break;
@@ -51,12 +60,18 @@
                 $listdanhmuc=categories_sellectall();
                 include "categories/update.php";
                 break;
-            case 'updatedanhmuc' :
-                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                    $ten_loai = $_POST['ten_loai'];
+            case 'updatecategories' :
+                if(isset($_POST['submit'])&&($_POST['submit'])){
+                    $cate_name = $_POST['cate_name'];
                     $id = $_POST['id'];
-                    categories_update($ten_loai,$id);
-                    $thongbao = "Cập nhật thành công";
+                    $error = [];
+                    if ($cate_name == '') {
+                        $error['pdname']= "Tên danh mục không được để trống";
+                    }
+                    if (!$error) {
+                        categories_update($cate_name,$id);
+                        $thongbao = "Cập nhật thành công";
+                    }    
                 }
                 $listdanhmuc=categories_sellectall();
                 include "categories/list.php";
@@ -309,6 +324,7 @@
                 break;
             case 'ds_user':
                 $list_user = loadall_user();
+                $role = loadrole();
                 include "user/list.php";
                 break;
             case 'delete_user':
@@ -384,7 +400,7 @@
             case 'comment':
                 $show_comment = comment();
                 $user = loadall_user();
-                $pd = loadallpd(0,'','');
+                $pd = loadpd();
                 include "comment/list.php";
                 break;
             case 'delcomment':
@@ -393,11 +409,16 @@
                     }
                     $show_comment=comment();
                     $user = loadall_user();
-                    $pd = loadallpd(0,'','');
+                    $pd = loadpd();
                     include "comment/list.php";
                 break;
             case 'bill':
-                $bill = loadlistbill();
+                if (isset($_POST['search'])) {
+                    $status = $_POST['status'];
+                }else{
+                    $status = '';
+                }
+                $bill = loadlistbill($status);
                 include "cart/list.php";
                 break;
             case 'edit_bill':
@@ -416,11 +437,14 @@
                     updatebill($id,$ttdh);
                     $thongbao="Cập nhật thành công";
                 }
-                $bill = loadlistbill();
+                $bill = loadlistbill('');
                 include "cart/list.php";
                 break;
             case 'thongke':
                 $thongke = pdtheocate();
+                $spbanchay = loadsixpdbestsell();
+                $categories = loadallcate();
+                $listbill = loadtenlistbill();
                 include "thongke/list.php";
                 break;
         default:

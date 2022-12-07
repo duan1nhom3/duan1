@@ -101,7 +101,7 @@
                                             <li><a class="dropdown-item" href="index.php?act=doipass">Đổi mật khẩu</a></li>
                                             <li><a class="dropdown-item" href="index.php?act=mybill">Đơn hàng của tôi</a></li>
                                             <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="index.php?act=logout">Sign out</a></li>
+                                            <li><a onclick="return confirm('Bạn có chắc muốn đăng xuất không')" class="dropdown-item" href="index.php?act=logout">Đăng xuất</a></li>
                                             </ul>
                                         </li>
                                     <?php }else{ ?>
@@ -128,45 +128,29 @@
                                                     <div class="cart-content">
                                                         <h4><a href="index.php?act=product_details&id=<?=$cart[0]?>"><?=$cart[1]?></a></h4>
                                                         <div class="cart-price">
-                                                            <span class="new"><?=$cart[2]?>.000 VNĐ</span>
-                                                            <span><del><?=$cart[8]?>.000 VNĐ</del></span>
+                                                            <span><del><?=currency_format($cart[8])?></del></span>
+                                                            <span class="new"><?=currency_format($cart[2])?></span> <br>
+                                                            
+                                                            <span>Số lượng: <?=$cart[6]?></span>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="del-icon">
-
-                                                        <a href=""><i class="far fa-trash-alt"></i></a>
-                                                        
-                                                    </div> -->
+                                                    
                                                 </li>
                                                 <?php $tong += $cart[7];$stt++?>
                                                 <?php endforeach ?>
-                                                <!-- <li class="d-flex align-items-start">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="layout/img/product/cart_p02.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h4><a href="#">Winter Jackets For Women</a></h4>
-                                                        <div class="cart-price">
-                                                            <span class="new">$229.9</span>
-                                                            <span><del>$229.9</del></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="del-icon">
-                                                        <a href="#"><i class="far fa-trash-alt"></i></a>
-                                                    </div>
-                                                </li> -->
+                                                
                                                 
                                                 <li>
                                                     <div class="total-price">
                                                         <span class="f-left">Total:</span>
-                                                        <span class="f-right"><?=$tong?>.000 VNĐ</span>
+                                                        <span class="f-right"><?=currency_format($tong)?></span>
                                                     </div>
                                                 </li>
                                                 <?php } ?>
                                                 <li>
                                                     <div class="checkout-link">
-                                                        <a href="index.php?act=cart">Shopping Cart</a>
-                                                        <a class="black-color" href="index.php?act=cart">Checkout</a>
+                                                        <a href="index.php?act=cart">Giỏ hàng</a>
+                                                        <a class="black-color" href="index.php?act=cart">Thanh toán ngay</a>
                                                     </div>
                                                 </li>
                                                 
@@ -189,184 +173,19 @@
                                             <a href="index.html" class="main-logo"><img src="layout/img/logo/w_logo.png" alt="Logo"></a>
                                             <a href="index.html" class="sticky-logo"><img src="layout/img/logo/logo.png" alt="Logo"></a>
                                         </div>
-                                        <!-- <div class="header-category d-none d-lg-block">
-                                            <a href="#" class="cat-toggle"><i class="fas fa-bars"></i>ALL DEPARTMENT</a>
-                                            <ul class="category-menu">
-                                                <li class="has-dropdown"><a href="#">Accessories & Parts</a>
-                                                    <ul class="cat-mega-menu">
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Accessories & Parts</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Electronic Cigarettes</li>
-                                                                <li><a href="#">Audio & Video</a></li>
-                                                                <li><a href="#">Televisions</a></li>
-                                                                <li><a href="#">TV Receivers</a></li>
-                                                                <li><a href="#">Projectors</a></li>
-                                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Smart Electronics</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Portable Audio & Video</li>
-                                                                <li><a href="#">Audio & Video</a></li>
-                                                                <li><a href="#">Televisions</a></li>
-                                                                <li><a href="#">TV Receivers</a></li>
-                                                                <li><a href="#">Projectors</a></li>
-                                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Accessories & Parts</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Audio & Video</li>
-                                                                <li class="cat-mega-menu-banner"><a href="#"><img src="layout/img/images/megamenu_banner.jpg" alt=""></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown"><a href="#">Cables & Adapters</a>
-                                                    <ul class="cat-mega-menu">
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Accessories & Parts</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Electronic Cigarettes</li>
-                                                                <li><a href="#">Audio & Video</a></li>
-                                                                <li><a href="#">Televisions</a></li>
-                                                                <li><a href="#">TV Receivers</a></li>
-                                                                <li><a href="#">Projectors</a></li>
-                                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Smart Electronics</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Portable Audio & Video</li>
-                                                                <li><a href="#">Audio & Video</a></li>
-                                                                <li><a href="#">Televisions</a></li>
-                                                                <li><a href="#">TV Receivers</a></li>
-                                                                <li><a href="#">Projectors</a></li>
-                                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Accessories & Parts</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Audio & Video</li>
-                                                                <li class="cat-mega-menu-banner"><a href="#"><img src="layout/img/images/megamenu_banner.jpg" alt=""></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Batteries</a></li>
-                                                <li><a href="#">Chargers</a></li>
-                                                <li><a href="#">Bags & Cases</a></li>
-                                                <li><a href="#">Electronic Cigarettes</a></li>
-                                                <li><a href="#">Audio & Video</a></li>
-                                                <li><a href="#">Televisions</a></li>
-                                                <li><a href="#">TV Receivers</a></li>
-                                                <li class="has-dropdown"><a href="#">Projectors</a>
-                                                    <ul class="cat-mega-menu">
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Accessories & Parts</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Electronic Cigarettes</li>
-                                                                <li><a href="#">Audio & Video</a></li>
-                                                                <li><a href="#">Televisions</a></li>
-                                                                <li><a href="#">TV Receivers</a></li>
-                                                                <li><a href="#">Projectors</a></li>
-                                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Smart Electronics</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Portable Audio & Video</li>
-                                                                <li><a href="#">Audio & Video</a></li>
-                                                                <li><a href="#">Televisions</a></li>
-                                                                <li><a href="#">TV Receivers</a></li>
-                                                                <li><a href="#">Projectors</a></li>
-                                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul>
-                                                                <li class="dropdown-title">Accessories & Parts</li>
-                                                                <li><a href="#">Cables & Adapters</a></li>
-                                                                <li><a href="#">Batteries</a></li>
-                                                                <li><a href="#">Chargers</a></li>
-                                                                <li><a href="#">Bags & Cases</a></li>
-                                                            </ul>
-                                                            <ul>
-                                                                <li class="dropdown-title">Audio & Video</li>
-                                                                <li class="cat-mega-menu-banner"><a href="#"><img src="layout/img/images/megamenu_banner.jpg" alt=""></a></li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Audio Amplifier Boards</a></li>
-                                                <li><a href="#">TV Sticks</a></li>
-                                            </ul>
-                                        </div> -->
+                                       
                                         <div class="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul class="navigation">
                                                 <li class="active menu-item-has-children has--mega--menu"><a href="index.php?act=home">Trang chủ</a></li>     
 
                                                 <li class="has--mega--menu"><a href="index.php?act=productspage">Sản phẩm</a></li>
                                                 
-                                                <li><a href="about-us.html">About Us</a></li>
+                                                <li><a href="index.php?act=productspage&id=3">VÁY</a></li>
                                                 
-                                                <li class="menu-item-has-children"><a href="#">blog</a></li>
+                                                <li><a href="index.php?act=productspage&id=5">TÚI</a></li>
                                                 
-                                                <li><a href="contact.html">Contact Us</a></li>
+                                                <li><a href="index.php?act=productspage&id=4">GIÀY</a></li>
+                                                
                                             </ul>
                                         </div>
                                         <div class="header-action d-none d-md-block">
@@ -378,7 +197,7 @@
                                                         <i class="flaticon-search-interface-symbol"></i>
                                                     </a>
                                                 </li>
-                                                <li class="sidebar-toggle-btn"><a href="#" class="navSidebar-button"><img src="layout/img/icon/sidebar_toggle_icon.png" alt=""></a></li>
+                                                <li class="sidebar-toggle-btn"><a href="#" class="navSidebar-button"><img src="layout/img/logo/logoxoaphong.png" width="34px" height="34px" alt=""></a></li>
                                             </ul>
                                         </div>
                                     </nav>
@@ -391,36 +210,13 @@
                                         </div>
                                         <div class="menu-outer">
                                             <ul class="navigation">
-                                                <li class="active menu-item-has-children"><a href="#">Home</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="index.html">Home One</a></li>
-                                                        <li class="active"><a href="index-2.html">Home Two</a></li>
-                                                        <li><a href="index-3.html">Home Three</a></li>
-                                                        <li><a href="index-4.html">Home Four</a></li>
-                                                        <li><a href="index-5.html">Home Five</a></li>
-                                                        <li><a href="index-6.html">Home Six</a></li>
-                                                        <li><a href="index-7.html">Home Seven</a></li>
-                                                        <li><a href="index-8.html">Home Eight</a></li>
-                                                        <li><a href="index-9.html">Home Nine</a></li>
-                                                    </ul>
+                                                <li class="active menu-item-has-children"><a href="#">Trang chủ</a>
+                                                    
                                                 </li>
-                                                <li class="menu-item-has-children"><a href="#">Shop</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="shop.html">Shop Page</a></li>
-                                                        <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                                        <li><a href="shop-details.html">Shop Details</a></li>
-                                                        <li><a href="cart.html">Cart Page</a></li>
-                                                        <li><a href="cart.html">Checkout Page</a></li>
-                                                    </ul>
+                                                <li class="menu-item-has-children"><a href="#">Sản phẩm</a>
+                                                    
                                                 </li>
-                                                <li><a href="about-us.html">About Us</a></li>
-                                                <li class="menu-item-has-children"><a href="#">blog</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog.html">Our Blog</a></li>
-                                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="contact.html">Contact Us</a></li>
+                                                
                                             </ul>
                                         </div>
                                         <div class="social-links">
@@ -484,7 +280,7 @@
                                             <p>Điền email của bạn vào đây để nhận thông báo từ chúng tôi</p>
                                             <form action="#">
                                                 <input type="email" placeholder="Email...">
-                                                <button class="btn">Đặt mua</button>
+                                                <button class="btn">Gửi</button>
                                             </form>
                                         </div>
                                         <div class="oc-social">

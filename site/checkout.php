@@ -75,7 +75,7 @@
             <h6 class="my-0"><?= $stt?>.</h6>
             <img style="border-radius: 10px;" src="layout/img/product/<?php echo $cart[3]?>" alt="" width="50px">
             <small class="text-muted"><?php echo $cart[1]?></small>
-            <span class="text-muted" style="margin-left: 100px;"><?php echo $cart[7]?>.000 VND</span>
+            <span class="text-muted" style="margin-left: 100px;"><?php echo currency_format($cart[7])?></span>
             <span class="text-muted" style="margin-left: 50px;">Số lượng <?php echo $cart[6]?></span>
             
           </div>
@@ -89,7 +89,7 @@
         </li>
         <li class="list-group-item d-flex justify-content-between">
           <span>Tổng tiền (VND)</span>
-          <strong><?php echo $tongtien?>.000 VND</strong>
+          <strong><?=currency_format($tongtien)?></strong>
         </li>
       </ul>
 
@@ -129,7 +129,7 @@
 
         <div class="mb-3">
           <label for="address2">Số điện thoại<span class="text-muted"></span></label>
-          <input type="text" class="form-control" name="sdt" value="<?= isset($phone_number) ? $phone_number : '' ?>" placeholder="xxxx">
+          <input type="number" class="form-control" name="sdt" value="<?= isset($phone_number) ? $phone_number : '' ?>" placeholder="xxxx">
         </div>
 
 
@@ -166,7 +166,7 @@
         </div>
         </div>
         <div>
-            <h4 style="text-align: center;">Tổng giá trị đơn hàng: <?=$tongtien?>.000 VND</h4>
+            <h4 style="text-align: center;">Tổng giá trị đơn hàng: <?=currency_format($tongtien)?></h4>
             <h4 style="text-align: center;">Ghi rõ nội dung: </h4>
         </div>
         <script>

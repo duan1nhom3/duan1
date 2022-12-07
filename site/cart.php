@@ -6,11 +6,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="breadcrumb-content">
-                                <h2>Cart Page</h2>
+                                <h2>Trang giỏ hàng</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                        <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,21 +50,18 @@
                                                 <td class="product-name">
                                                     <h4><a href="shop-details.html"><?=$cart[1]?></a></h4>
                                                 </td>
-                                                <td class="product-price"><?=$cart[2]?>.000 VNĐ</td>
+                                                <td class="product-price"><?=currency_format($cart[2])?></td>
                                                 <td class="product-quantity">
                                                     <div class="cart-plus-minus">
                                                         <form action="#" class="num-block">
                                                             <input type="text" class="in-num" value="<?=$cart[6]?>" readonly="">
-                                                            <div class="qtybutton-box">
-                                                                <span class="plus"><img src="layout/img/icon/plus.png" alt=""></span>
-                                                                <span class="minus dis"><img src="layout/img/icon/minus.png" alt=""></span>
-                                                            </div>
+                                                            
                                                         </form>
                                                     </div>
                                                 </td>
                                                 <td class="product-size"><span><?= selectsize($cart[4])['size']?></span></td>
                                                 <td class="product-color"><span><?= selectcolor($cart[5])['color_name']?></span></td>
-                                                <td class="product-subtotal"><span><?=$cart[7]?>.000 VNĐ</span></td>
+                                                <td class="product-subtotal"><span><?=currency_format($cart[7])?></span></td>
                                                 <td class="product-delete"><a href="index.php?act=delcart&id=<?=$stt?>"><i class="flaticon-trash"></i></a></td>
                                             </tr>
                                             <?php $stt+=1;$total+=$cart[7]?>
@@ -72,7 +69,7 @@
                                             
                                             <tr>
                                                 <td style="font-weight: bolder;font-size:20px;" colspan="7">Tổng đơn hàng</td>
-                                                <td style="font-weight: bolder;font-size:20px;"><?= $total?>.000 VNĐ</td>
+                                                <td style="font-weight: bolder;font-size:20px;"><?=currency_format($total)?></td>
                                             </tr>
                                         </tbody>
                                         
@@ -96,9 +93,14 @@
                                         <ul>
                                         
         
-                                            <li class="cart-total-amount"><span>Tổng đơn hàng</span> <span class="amount"><?= $total?>.000 VNĐ</span></li>
+                                            <li class="cart-total-amount"><span>Tổng đơn hàng</span> <span class="amount"><?=currency_format($total)?></span></li>
                                         </ul>
-                                        <a href="index.php?act=thanhtoan" class="btn">THANH TOÁN</a>
+                                        <?php if (isset($_SESSION['user'])) { ?>
+                                        
+                                            <a href="index.php?act=thanhtoan" class="btn">THANH TOÁN</a>
+                                        <?php }else{ ?>
+                                            <a href="index.php?act=login" class="btn">THANH TOÁN</a>
+                                        <?php } ?>
                                     </form>
                                 </div>
                             </div>

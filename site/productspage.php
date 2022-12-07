@@ -25,13 +25,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-9 col-lg-8">
-                            <!-- <div class="shop-top-meta mb-35">
+                            <div class="shop-top-meta mb-35">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="shop-top-left">
                                             <ul>
                                                 <li><a href="#"><i class="flaticon-menu"></i> FILTER</a></li>
-                                                <li>Showing 1–9 of 80 results</li>
+                                                <li>Hiển thị 1-9</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -39,23 +39,24 @@
                                         <div class="shop-top-right">
                                             <form action="#">
                                                 <select name="select">
-                                                    <option value="">Sort by newness</option>
-                                                    <option>Free Shipping</option>
-                                                    <option>Best Match</option>
-                                                    <option>Newest Item</option>
-                                                    <option>Size A - Z</option>
+                                                    <option value="">Sắp xếp</option>
+                                                    <option>Sản phẩm mới</option>
+                                                    <option>Theo giá tiền</option>
+                                                    <option>Theo bảng chữ cái</option>
+                                                    
                                                 </select>
+                                                
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="row">
                             <?php foreach($products_cate as $pd):?>
                                 <div class="col-xl-4 col-sm-6">
                                     <div class="new-arrival-item text-center mb-50">
                                         <div class="thumb mb-25">
-                                            <a href="index.php?act=product_details&id=<?=$pd['id']?>"><img src="layout/img/product/<?=$pd['img']?>" alt="" width="330px"></a>
+                                            <a href="index.php?act=product_details&id=<?=$pd['id']?>"><img src="layout/img/product/<?=$pd['img']?>" alt="" width="330px" height="440px"></a>
                                             <div class="product-overlay-action">
                                                 <ul>
                                                     <li><a href="index.php?act=product_details&id=<?=$pd['id']?>"><i class="far fa-heart"></i></a></li>
@@ -65,13 +66,17 @@
                                         </div>
                                         <div class="content">
                                             <h5><a href="shop-details.html"><?=$pd['product_name']?></a></h5>
-                                            <span class="price"><?=$pd['price']?>.000 VNĐ</span>
+                                            <span><del><?=currency_format($pd['discount'])?></del></span>
+                                            <span class="price"><?=currency_format($pd['price'])?></span>
                                         </div>
                                     </div>
                                 </div>
                             <?php endforeach?>
                                 
                             </div>
+                            <?php if (isset($_GET['id'])&&($_GET['id'] != 0)) {?>
+                                
+                            <?php }else{ ?>
                             <div class="pagination-wrap">
                                 <ul>
                                     <?php for ($i=1; $i <= $pagenumber; $i++) { ?>
@@ -79,16 +84,9 @@
                                             echo 'style="background-color:red"' ;
                                         }?> ><a href="index.php?act=productspage&page=<?=$i?>"> <?=$i?> </a></li>
                                     <?php }?>
-                                     <!-- <li class="prev"><a href="#">Prev</a></li>
-                                    <li class="active"><a href="index.php?act=productspage">1</a></li>
-                                    <li><a href="index.php?act=productspage&page=2">2</a></li>
-                                    <li><a href="index.php?act=productspage&page=3">3</a></li>
-                                    <li><a href="index.php?act=productspage&page=4">4</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li><a href="#">10</a></li>
-                                    <li class="next"><a href="#">Next</a></li> -->
                                 </ul>
                             </div>
+                            <?php } ?>
                         </div>
                         <div class="col-xl-3 col-lg-4">
                             <aside class="shop-sidebar">
@@ -112,7 +110,7 @@
                                 
                                 
                                 <div class="widget">
-                                    <h4 class="widget-title">Top Items</h4>
+                                    <h4 class="widget-title">New Items</h4>
                                     <div class="sidebar-product-list">
                                         <ul>
                                             <?php $threepd = loadthreepdnew();?>
@@ -130,7 +128,8 @@
                                                         <i class="fas fa-star"></i>
                                                     </div>
                                                     <h5><a href="index.php?act=product_details&id=<?=$pro['id']?>"><?=$pro['product_name']?></a></h5>
-                                                    <span><?=$pro['price']?>.000 VNĐ</span>
+                                                    <span><del><?=currency_format($pro['discount'])?></del></span>
+                                                    <span class="price"><?=currency_format($pro['price'])?></span>
                                                 </div>
                                             </li>
                                             <?php endforeach ?>

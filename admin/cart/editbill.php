@@ -31,7 +31,7 @@ extract($bill);
                 <p style="font-size: 17px;">Mã đơn hàng: DH-<?= $bill['id'] ?></p>
                 <p style="font-size: 17px;">Ngày đặt hàng: <?= $date ?></p>
                 <p style="font-size: 17px;">Phương thức thanh toán: <?= $method ?></p>
-                <p style="font-size: 17px;">Tổng tiền đã thanh toán: <?= $total ?>.000 VND</p>
+                <p style="font-size: 17px;">Tổng tiền đã thanh toán: <?=currency_format($total)?></p>
                 <p style="font-size: 17px;">Trạng thái đơn hàng: <?= $status ?></p>
             </div>
 

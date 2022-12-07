@@ -1,30 +1,28 @@
 <!-- main-area -->
 <main>
-
+<?php extract($pddetails); $idpd=$id?>
 <!-- breadcrumb-area -->
 <div class="breadcrumb-area breadcrumb-style-two" data-background="layout/img/bg/s_breadcrumb_bg01.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 d-none d-lg-block">
                 <div class="previous-product">
-                    <a href="shop-details.html"><i class="fas fa-angle-left"></i> previous product</a>
+                    <a href="index.php?act=product_details&id=<?=$id-1?>"><i class="fas fa-angle-left"></i> Sản phẩm trước</a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="breadcrumb-content">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="shop.html">Winter 20</a></li>
-                            <li class="breadcrumb-item"><a href="shop.html">Women</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tracker Jacket</li>
+                            <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?=$product_name?></li>
                         </ol>
                     </nav>
                 </div>
             </div>
             <div class="col-lg-3 d-none d-lg-block">
                 <div class="next-product">
-                    <a href="shop-details.html">Next product <i class="fas fa-angle-right"></i></a>
+                    <a href="index.php?act=product_details&id=<?=$id+1?>">Sản phẩm tiếp theo <i class="fas fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -34,7 +32,7 @@
 
 <!-- shop-details-area -->
 <section class="shop-details-area pt-100 pb-95">
-    <?php extract($pddetails); $idpd=$id?>
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
@@ -48,13 +46,7 @@
                                 <?php foreach($img_des as $imgdes):?>
                                     <?php 
                                         $number = convert_name($num);
-                                        // if ($number=="one") {
-                                        //     $atv = 'active';
-                                        //     $acs = 'true';
-                                        // }else{
-                                        //     $atv = '';
-                                        //     $acs = 'false';
-                                        // }
+                                        
                                         $num+=1;
                                         
                                     ?>
@@ -63,15 +55,7 @@
                                         <a class="nav-link" id="item-<?=$number?>-tab" data-toggle="tab" href="#item-<?=$number?>" role="tab" aria-controls="item-<?=$number?>" aria-selected="false"><img src="layout/img/product/<?=$imgdes['img_name']?>" alt="" width="100px"></a>
                                     </li>
                                 <?php endforeach ?>
-                            <!-- <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="item-one-tab" data-toggle="tab" href="#item-one" role="tab" aria-controls="item-one" aria-selected="true"><img src="layout/img/product/sd_nav_img01.jpg" alt=""></a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="item-two-tab" data-toggle="tab" href="#item-two" role="tab" aria-controls="item-two" aria-selected="false"><img src="layout/img/product/sd_nav_img02.jpg" alt=""></a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="item-three-tab" data-toggle="tab" href="#item-three" role="tab" aria-controls="item-three" aria-selected="false"><img src="layout/img/product/sd_nav_img03.jpg" alt=""></a>
-                            </li> -->
+                            
                         </ul>
                     </div>
                     <div class="shop-details-img-wrap">
@@ -86,11 +70,7 @@
                                 <?php 
                                     
                                     $number = convert_name($num);
-                                    // if ($number=="one") {
-                                    //     $atv = 'show active';
-                                    // }else{
-                                    //     $atv = '';
-                                    // }
+                                    
                                     $num+=1;
                                 ?>
                             <div class="tab-pane fade" id="item-<?=$number?>" role="tabpanel" aria-labelledby="item-<?=$number?>-tab">
@@ -99,16 +79,7 @@
                                 </div>
                             </div>
                             <?php endforeach ?>
-                            <!-- <div class="tab-pane fade" id="item-two" role="tabpanel" aria-labelledby="item-two-tab">
-                                <div class="shop-details-img">
-                                    <img src="layout/img/product/shop_details_img02.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="item-three" role="tabpanel" aria-labelledby="item-three-tab">
-                                <div class="shop-details-img">
-                                    <img src="layout/img/product/shop_details_img03.jpg" alt="">
-                                </div>
-                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -124,9 +95,9 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="style-name">Style Name : TN-WI56-OMTJ-CqTKJ-09#</p>
-                    <span><del>Giá gốc: <?=$discount?>.000 VNĐ</del></span>
-                    <div class="price">Giá : <?=$price?>.000 VNĐ</div>
+                    <p class="style-name">Lượt mua : <?=$luotmua?></p>
+                    <span><del>Giá gốc: <?=currency_format($discount)?></del></span>
+                    <div class="price">Giá : <?=currency_format($price)?></div>
                     <form action="index.php?act=addcart" method="post">
                         <div class="product-details-info">
                             <div class="sidebar-product-size mb-30">
@@ -136,20 +107,14 @@
                                         <?php $pdsize = selectpd_size($id);?>
                                         <?php foreach($pdsize as $pd){
                                             $size = selectsize($pd['id_size']);
-                                            
-                                            echo '<li class="text-center"><input type="radio" name="size" value="'.$size['id'].'" checked><a href="#">'.$size['size'].'</a></li>';
+                                            echo '<input type="radio" name="size" value="0" hidden checked>';
+                                            echo '<li class="text-center"><input type="radio" name="size" value="'.$size['id'].'" ><a href="#">'.$size['size'].'</a></li>';
                                             
                                         }?> 
-                                        <!-- <li class="text-center"><input type="radio" name="size" value="S"><a href="#">S</a></li>
-                                        <li class="text-center"><input type="radio" name="size" value="M"><a href="#">M</a></li>
-                                        <li class="text-center"><input type="radio" name="size" value="L"><a href="#">L</a></li>
-                                        <li class="text-center"><input type="radio" name="size" value="XL"><a href="#">XL</a></li>
-                                        <li class="text-center"><input type="radio" name="size" value="XXL"><a href="#">XXL</a></li> -->
+                                        <span style="color: red;font-size:17px"><?= isset($_COOKIE['thongbaosize']) ? $_COOKIE['thongbaosize'] : '' ?></span>
+                                        
                                     </ul>
-                                    
-                                    
-                                    
-                                    
+    
                                     
                                 </div>
                             </div>
@@ -160,11 +125,13 @@
                                         <?php $pdcolor = selectpd_color($id);$stt=1?>
                                         <?php foreach($pdcolor as $pd){
                                             $color_name = selectcolor($pd['id_color']);
-                                            // echo '<li class="'.$color_name['color_name'].'"></li>';
-                                            echo '<div class="'.$color_name['color_name'].'"><input name="color"  type="radio" id="c'.$stt.'" value="'.$color_name['id'].'" checked><label for="c'.$stt.'"><span></span></label></div>';
+                                            echo '<input type="radio" name="color" value="0" hidden checked>';
+                                            echo '<div class="'.$color_name['color_name'].'"><input name="color"  type="radio" id="c'.$stt.'" value="'.$color_name['id'].'" ><label for="c'.$stt.'"><span></span></label></div>';
                                             $stt+=1;
                                         }?> 
+
                                     </ul>
+                                        <span style="color: red;font-size:17px"><?= isset($_COOKIE['thongbaomau']) ? $_COOKIE['thongbaomau'] : '' ?></span>
                                 </div>
                             </div>
                         </div>
@@ -183,6 +150,7 @@
                               <input type="hidden" name="img" value="<?=$img?>">
                               <input type="hidden" name="price" value="<?=$price?>">
                               <input type="hidden" name="discount" value="<?=$discount?>">
+                              <input type="hidden" name="luotmua" value="<?=$luotmua?>">
                         
                             <a href="index.php?act=addcart" ><button class="btn"  type="submit" name="addtocart">Thêm vào giỏ hàng</button></a>
                             
@@ -211,74 +179,10 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <!-- <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                            <div class="product-desc-title mb-30">
-                                <h4 class="title">Additional information :</h4>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't
-                            distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very
-                            useful when the focus is meant to be on design, not content.</p>
-                            <div class="color-size-info">
-                                <ul>
-                                    <li><span>COLOR :</span> Black, Gray</li>
-                                    <li><span>SIZE :</span> XS, S, M, L</li>
-                                </ul>
-                            </div>
-                            <div class="additional-table">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Size Name</th>
-                                                <td>28</td>
-                                                <td>49</td>
-                                                <td>36</td>
-                                                <td>55</td>
-                                                <td>44</td>
-                                                <td>34</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Waist Stretch</th>
-                                                <td>19</td>
-                                                <td>38</td>
-                                                <td>31</td>
-                                                <td>55</td>
-                                                <td>44</td>
-                                                <td>34</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Hip (7½” below from waist)</th>
-                                                <td>11</td>
-                                                <td>18</td>
-                                                <td>21</td>
-                                                <td>55</td>
-                                                <td>44</td>
-                                                <td>34</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">length (Out seam)</th>
-                                                <td>28</td>
-                                                <td>31</td>
-                                                <td>19</td>
-                                                <td>55</td>
-                                                <td>44</td>
-                                                <td>34</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't
-                            distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very
-                            useful when the focus is meant to be on design, not content.</p>
-                        </div> -->
+                        
                         <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                             <div class="product-desc-title mb-30">
-                                <h4 class="title">Nhận xét của khách hàng (0) :</h4>
+                                <h4 class="title">Bình luận của khách hàng  :</h4>
                             </div>
                             <?php foreach ($listbl as $bl) : ?>
                                 <?php 
@@ -307,7 +211,7 @@
                                     <button type="submit" name="comment" class="btn">Gửi </button>
                                     
                                 <?php }else{ ?>
-                                    <span style="color: red;font-size:20px">Bạn cần đăng nhập để gửi đánh giá</span>
+                                    <span style="color: red;font-size:20px">Bạn cần đăng nhập để gửi bình luận</span>
                                 
                                 <?php } ?>
                             </form>
@@ -341,7 +245,8 @@
                         </div>
                         <div class="content">
                             <h5><a href="shop-details.html"><?=$pd['product_name']?></a></h5>
-                            <span class="price"><?=$pd['price']?>.000 VNĐ</span>
+                            <span><del><?=currency_format($pd['discount'])?></del></span>
+                            <span class="price"><?=currency_format($pd['price'])?></span>
                         </div>
                     </div>
                 </div>

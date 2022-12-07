@@ -24,11 +24,24 @@ function cart(){
     return $bill;
 }
 function loadallbill($id){
-    $sql ="select*from bill where id_user = $id";
+    $sql ="select*from bill where id_user = $id order by id desc";
     return pdo_query($sql);
 }
-function loadlistbill(){
-    $sql ="select*from bill";
+function loadlistbill($status){
+    $sql = "select*from bill where 1";
+    if ($status != '') {
+        $sql.= " and status = '".$status."'";
+    }
+    $sql.= " order by id desc";
+
+    return pdo_query($sql);
+}
+// function loadlistbill(){
+//     $sql ="select*from bill order by id desc";
+//     return pdo_query($sql);
+// }
+function loadtenlistbill(){
+    $sql ="select*from bill order by total desc limit 0,5";
     return pdo_query($sql);
 }
 function updatebill($id,$ttdh){

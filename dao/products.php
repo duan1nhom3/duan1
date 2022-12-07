@@ -14,17 +14,26 @@ function loadallpd($id_cate,$kw,$page){
         $begin = ($page*9)-9;
     }
     
-    $sql.= " limit $begin,9";
+    $sql.= " order by id desc limit $begin,9";
     $listpd = pdo_query($sql);
    
     return $listpd;
 }
-
+function loadpd(){
+    $sql = "select*from product";
+    return pdo_query($sql);
+}
 function loadpdbestsell(){
-    $sql = "select*from product limit 0,10";
+    $sql = "select*from product order by luotmua desc limit 0,12";
     $listpd = pdo_query($sql);
     return $listpd;
 }
+function loadsixpdbestsell(){
+    $sql = "select*from product order by luotmua desc limit 0,6";
+    $listpd = pdo_query($sql);
+    return $listpd;
+}
+
 function loadpdnew(){
     $sql = "select*from product order by id desc limit 0,8";
     $listpd = pdo_query($sql);
@@ -36,7 +45,7 @@ function loadthreepdnew(){
     return $listpd;
 }
 function loadpdsale(){
-    $sql = "select*from product order by discount desc limit 0,8";
+    $sql = "select*from product order by (discount-price) desc limit 0,8";
     $listpd = pdo_query($sql);
     return $listpd;
 }
@@ -71,6 +80,10 @@ function inserthh($tenhh,$dongia,$hinh,$loai,$dacbiet,$mota){
 }
 function updatepd($idpd,$pdname,$price,$img,$cate,$discount,$description){
     $sql = "UPDATE `product` SET `product_name`='$pdname',`img`='$img',`price`='$price',`discount`='$discount',`id_cate`='$cate',`description`='$description' WHERE id=$idpd";
+    pdo_execute($sql);
+}
+function luotmua($id,$soluongmua,$luotmua){
+    $sql = "UPDATE `product` SET `luotmua` = ($soluongmua+$luotmua) where id=$id";
     pdo_execute($sql);
 }
 ?>

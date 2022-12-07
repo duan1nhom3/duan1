@@ -22,7 +22,7 @@
         extract($bill);
     ?>
     <div class="tieude text-center p-5">
-        <h2>Cảm ơn <?=$fullname?> đã mua hàng</h2>
+        <h2>Cảm ơn <?=$fullname?>. Đơn hàng của bạn đã được nhận.</h2>
     </div>
     <div class="ttdonhang ">
         <h3 class="text-center">Thông tin đơn hàng</h3>
@@ -34,7 +34,7 @@
             <p>Email: <?=$email?></p>
             <p>Ngày đặt hàng: <?=$date?></p>
             <p>Phương thức thanh toán: <?=$method?></p>
-            <p>Tổng tiền đã thanh toán: <?=$total?>.000 VND</p>
+            <p>Tổng tiền đã thanh toán: <?=currency_format($total)?></p>
             
         </div>
     </div>
@@ -60,7 +60,7 @@
                             <td>'.$stt.'</td>
                             <td>'.$bd['product_name'].'</td>
                             <td><img src="layout/img/product/'.$bd['img'].'" alt="" width="50px"></td>
-                            <td>'.$bd['price'].'.000 VNĐ</td>
+                            <td>'.currency_format($bd['price']).'</td>
                             <td>'.selectcolor($bd['color'])['color_name'].'</td>
                             <td>'.selectsize($bd['size'])['size'].'</td>
                             <td>'.$bd['amount'].'</td>
@@ -73,7 +73,7 @@
                     } 
                     echo '<tr>
                         <td>Tổng tiền:</td>
-                        <td>'.$total.'.000 VNĐ</td>                
+                        <td>'.currency_format($total).'</td>                
                     </tr>';
                 ?>
         
