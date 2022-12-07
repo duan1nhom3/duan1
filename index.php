@@ -104,7 +104,12 @@
                     $checkdn = checklogin($email,$pass);
                     if (is_array($checkdn)) {
                         $_SESSION['user'] = $checkdn;
-                        header('location: index.php');
+                        if ($_SESSION['user']['role_id'] == 1) {
+                            header('location: index.php');
+                        }else{
+                            header('location: admin/index.php');
+                        }
+                        
                     }else{
                         $thongbao = "Email hoặc mật khẩu không chính xác vui lòng thử lại !";
                     }
@@ -287,33 +292,48 @@
                     $size = $_POST['size'];
                     $quantity = $_POST['quantity'];
                     $discount = $_POST['discount'];
+                    $luotmua = $_POST['luotmua'];
                     $subtotal = $price*$quantity;
                     $i = 0;
                     $kt=0;
-                    
-                    if (isset($_SESSION['addcart'])&&(count($_SESSION['addcart'])>0)) {
-                        foreach($_SESSION['addcart'] as $pd){
-                            if ($pd[0] = $id && $pd[4] == $size && $pd[5] == $color) {
-                                $quantity+=$pd[6];
-                                $subtotal = $price*$quantity;
-                                $kt=1;
+                    $error = [];
+                    if ($size == 0) {
+                        $error['size'] = "Bạn chưa chọn size";
+                    }
+                    if ($color == 0) {
+                        $error['color'] = "Bạn chưa chọn màu";
+                    }
+                    if (!$error) {
+                        if (isset($_SESSION['addcart'])&&(count($_SESSION['addcart'])>0)) {
+                            foreach($_SESSION['addcart'] as $pd){
+                                if ($pd[0] = $id && $pd[4] == $size && $pd[5] == $color) {
+                                    $quantity+=$pd[6];
+                                    $subtotal = $price*$quantity;
+                                    $kt=1;
 
-                                $_SESSION['addcart'][$i][6] = $quantity;
-                                $_SESSION['addcart'][$i][7] = $subtotal;
-                                break;
+                                    $_SESSION['addcart'][$i][6] = $quantity;
+                                    $_SESSION['addcart'][$i][7] = $subtotal;
+                                    break;
+                                }
+                                $i++;
                             }
-                            $i++;
                         }
-                    }
+                        
+                        if ($kt==0) {
+                            $spadd = [$id,$name,$price,$img,$size,$color,$quantity,$subtotal,$discount,$luotmua];
+                            array_push($_SESSION['addcart'],$spadd);
+                        }
+
+                        header('location:index.php?act=cart'); 
+                    }else {
+                    setcookie("thongbaosize",''.$error['size'],time()+1);
+                    setcookie("thongbaomau",''.$error['color'],time()+1);
+                    header('location:index.php?act=product_details&id='.$id);
+                }
                     
-                    if ($kt==0) {
-                        $spadd = [$id,$name,$price,$img,$size,$color,$quantity,$subtotal,$discount];
-                        array_push($_SESSION['addcart'],$spadd);
-                    }
                     
                 }
-                header('location:index.php?act=cart'); 
-                // include "site/cart.php";
+                // include "site/products_details.php";
                 break;
             
             case 'delcart':
@@ -349,6 +369,7 @@
                     
                     foreach($_SESSION['addcart'] as $cart){
                         insertbill_details($idbill,$cart[1],$cart[2],$cart[3],$cart[4],$cart[5],$cart[6],$total);
+                        luotmua($cart[0],$cart[6],$cart[9]);
                     }
                     $_SESSION['addcart'] = [];
                 }
@@ -357,8 +378,15 @@
                 include "site/bill.php";
                 break;
             case 'mybill':
+                if (isset($_POST['doitt'])) {
+                    $id = $_POST['id_bill'];
+                    $ttdh = $_POST['status'];
+                    updatebill($id,$ttdh);
+                    header("location: index.php?act=mybill");
+                }
                 $id = $_SESSION['user']['id'];
                 $bill = loadallbill($id);
+                
                     include "site/mybill.php";
                 break;
             case 'bill_details':
@@ -367,7 +395,7 @@
                 }
 
                 $bill = loadonebill($id);
-                $bill_details = loadonecart($id);;
+                $bill_details = loadonecart($id);
                 include "site/billdetails.php";
                 break;
 

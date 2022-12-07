@@ -67,7 +67,13 @@
                                         <td class="text-center"><?= $password ?></td>
                                         <td class="text-center"><?= $address ?></td>
                                         <td class="text-center"><?= $phone_number ?></td>
-                                        <td class="text-center"><?= $role_id ?></td>
+                                        <td class="text-center">
+                                            <?php foreach ($role as $rol) : ?>
+                                                <?php if ($tk['role_id'] === $rol['id']) : ?>
+                                                    <?= $rol['role']  ?>
+                                                <?php endif ?>
+                                            <?php endforeach ?>
+                                        </td>
                                         <td class="text-center">
                                             <a onclick="return confirm('Bạn có chắc chắn muốn xóa người này không')" href="index.php?act=delete_user&id=<?= $id ?>"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button></a>
 

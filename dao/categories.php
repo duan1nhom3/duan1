@@ -7,12 +7,12 @@ function loadallcate(){
 }
 
 function categories_sellectall(){
-    $sql = "select * from categories order by id DESC";
+    $sql = "select * from categories";
     return pdo_query($sql);
 }
     //thêm mới loại
-    function categories_insert($ten_loai){
-        $sql = "INSERT INTO `categories`(`cate_name`) VALUES ('$ten_loai')";
+    function categories_insert($cate_name){
+        $sql = "INSERT INTO `categories`(`cate_name`) VALUES ('$cate_name')";
         pdo_execute($sql);
     }
     function categories_delete(){

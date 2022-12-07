@@ -21,7 +21,7 @@
                 <p style="font-size: 17px;">Mã đơn hàng: DH-<?=$bill['id'] ?></p>
                 <p style="font-size: 17px;">Ngày đặt hàng: <?=$date?></p>
                 <p style="font-size: 17px;">Phương thức thanh toán: <?=$method?></p>
-                <p style="font-size: 17px;">Tổng tiền đã thanh toán: <?=$total?>.000 VND</p>
+                <p style="font-size: 17px;">Tổng tiền đã thanh toán: <?=currency_format($total)?></p>
                 <p style="font-size: 17px;">Trạng thái đơn hàng: <?=$status?></p>
             </div>
             
@@ -49,7 +49,7 @@
                             <td>'.$stt.'</td>
                             <td>'.$bd['product_name'].'</td>
                             <td><img src="layout/img/product/'.$bd['img'].'" alt="" width="50px"></td>
-                            <td>'.$bd['price'].'.000 VNĐ</td>
+                            <td>'.currency_format($bd['price']).'</td>
                             <td>'.selectcolor($bd['color'])['color_name'].'</td>
                             <td>'.selectsize($bd['size'])['size'].'</td>
                             <td>'.$bd['amount'].'</td>
@@ -62,7 +62,7 @@
                     } 
                     echo '<tr>
                         <td>Tổng tiền:</td>
-                        <td>'.$total.'.000 VNĐ</td>                
+                        <td>'.currency_format($total).'</td>                
                     </tr>';
                 ?>
         

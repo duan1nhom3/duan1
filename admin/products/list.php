@@ -53,7 +53,7 @@
                         <tr>
                             <td class="text-center"><?=$pd['id']?></td>
                             <td class="text-center"><?=$pd['product_name']?></td>
-                            <td class="text-center"><?=$pd['price']?>.000 VNĐ</td>
+                            <td class="text-center"><?=currency_format($pd['price'])?></td>
                             <td class="text-center"><img src="../layout/img/product/<?=$pd['img']?>" alt="" width="70px"></td>
                             <td class="text-center">
                                     <?php foreach ($category as $cate) : ?>
